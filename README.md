@@ -14,4 +14,13 @@ Tasks :
 - Finding a lightweight model for translating Polish to English (Krzysztof)
 - Harness : Having a way to select complicated polish words and look for their definition in the dictionary 
 
-- Finding a model for describing the data -> in progres by cyprien
+- Finding a model for describing data -> in progres by cyprien
+
+
+## Krzysztof
+
+Essay harness + knowledge base + synthetic Matura data.
+
+- Base model for now: Bielik-1.5B-v3.0-Instruct (Polish, Apache 2.0), 9B as fallback
+- Dev set of 12 real CKE essay topics (2023-2026) committed on branch `krzysztof`, in `essay_harness/topics_real.json`
+- Next: design the essay pipeline (topic -> plan -> draft -> fact-check) on top of the knowledge base
