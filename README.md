@@ -10,3 +10,7 @@ Tasks :
 
 
 - Synthetic data : -> in progress
+- Finding a lightweight model for translating Polish to English
+- Harness : Having a way to select complicated polish words and look for their definition in the dictionary
+
+- Finding a model for describing the data -> in progres by cyprien
