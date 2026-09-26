@@ -1,0 +1,18 @@
+[
+  {
+    "id": "brytyjczycy",
+    "pl": ["Brytyjczyk", "Brytyjczycy", "Brytyjczyków", "Brytyjczykom", "brytyjski"],
+    "en": "the British",
+    "type": "group",
+    "definition": "People of Britain; ruled India directly from 1858 (British Raj).",
+    "kb_card": "british_raj"
+  },
+  {
+    "id": "indie",
+    "pl": ["Indie", "Indii", "Indiach", "indyjski"],
+    "en": "India",
+    "type": "place",
+    "definition": "South Asian country, a British colony until independence in 1947.",
+    "kb_card": "british_raj"
+  }
+]

@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matura Pipeline Viewer</title>
+<style>
+:root{--bg:#f6f5f2;--panel:#fff;--ink:#1d1d1f;--mute:#6b6b70;--line:#dcdad4;--accent:#2d5be3;--hl:#fff1b8;
+--open:#2d5be3;--closed:#1f8a5b;--essay:#b5541c;--skip:#a8a69f}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#141416;--panel:#1e1e21;--ink:#ececee;--mute:#9a9aa1;--line:#34343a;--accent:#7b9bff;--hl:#5a4a10;--open:#7b9bff;--closed:#4cc38a;--essay:#f0935a;--skip:#6b6b70}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 system-ui,-apple-system,sans-serif;display:flex;height:100vh}
+aside{width:260px;flex:none;border-right:1px solid var(--line);overflow:hidden;background:var(--panel);display:flex;flex-direction:column}
+#list{overflow:auto;flex:1;min-height:0}
+.sidehead{display:flex;align-items:center;border-bottom:1px solid var(--line)}
+aside h1{font-size:15px;margin:0;padding:14px 16px;flex:1}
+#sidetoggle,#sideopen{font:inherit;font-size:16px;line-height:1;border:1px solid var(--line);background:var(--panel);color:var(--mute);border-radius:6px;padding:4px 9px;cursor:pointer}
+#sidetoggle{margin-right:12px;width:auto}#sidetoggle:hover,#sideopen:hover{color:var(--ink);border-color:var(--accent)}
+#sideopen{display:none;position:fixed;left:10px;top:10px;z-index:20}
+body.collapsed aside{display:none}body.collapsed #sideopen{display:block}body.collapsed main{padding-left:56px}
+aside button{display:flex;gap:8px;align-items:center;width:100%;text-align:left;border:0;background:none;color:inherit;padding:8px 16px;cursor:pointer;font:inherit;border-left:3px solid transparent}
+aside button:hover{background:var(--bg)}
+.qrow{display:flex;gap:8px;align-items:center;padding:6px 16px 6px 12px;cursor:pointer;border-left:3px solid transparent}
+.qrow:hover{background:var(--bg)}.qrow.on{background:var(--bg);border-left-color:var(--accent)}
+.qrow input{margin:0;cursor:pointer}.qrow .mark{width:16px;text-align:center;font-size:12px}
+.qrow .mark.bad{color:#c0392b}.qrow .mark.good{color:var(--closed)}
+#runpanel{padding:8px 16px 10px;border-bottom:1px solid var(--line);font-size:12px}
+#runpanel .selbtns{display:flex;gap:6px;margin:4px 0 6px}
+#runpanel button{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--bg);color:inherit;border-radius:6px;padding:2px 8px;cursor:pointer}
+#runpanel button.primary{width:100%;margin-top:6px;padding:7px;background:var(--closed);color:#fff;border:0;font-size:13px;font-weight:600;justify-content:center}
+#runpanel label.opt{display:flex;gap:6px;align-items:flex-start;color:var(--mute);margin-top:3px}
+#runmsg{color:#c0392b;margin-top:4px}
+#banner{position:sticky;top:-20px;z-index:5;margin:-20px -24px 14px;padding:10px 24px;background:var(--panel);border-bottom:1px solid var(--line);display:none}
+#banner .prog{height:6px;background:var(--line);border-radius:3px;margin-top:6px;overflow:hidden}
+#banner .prog i{display:block;height:100%;background:var(--closed);transition:width .4s}
+#banner button{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--bg);color:inherit;border-radius:6px;padding:2px 10px;cursor:pointer;margin-left:8px}
+#banner a{color:var(--accent);cursor:pointer}
+#banner .bad{color:#c0392b}
+aside .pts{margin-left:auto;color:var(--mute);font-size:12px}
+.badge{font-size:11px;padding:1px 7px;border-radius:9px;color:#fff}
+.k-open{background:var(--open)}.k-closed{background:var(--closed)}.k-essay{background:var(--essay)}
+main{flex:1;overflow:auto;padding:20px 24px;position:relative}
+.head{display:flex;gap:10px;align-items:center;margin-bottom:16px}
+.head h2{margin:0;font-size:18px}
+main.score-mode #score{display:block}main.score-mode > .head,main.score-mode > .flow{display:none}
+.flow{position:relative;display:grid;grid-template-columns:repeat(7,minmax(168px,1fr));gap:56px 26px;align-items:start;min-width:1340px}
+svg.arrows{position:absolute;inset:0;pointer-events:none;overflow:visible}
+svg.arrows path{fill:none;stroke:var(--mute);stroke-width:1.6;opacity:.75}
+svg.arrows path.dim{stroke-dasharray:5 4;opacity:.35}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;position:relative;z-index:1}
+.card.skip{border-style:dashed;background:transparent}
+.card h3{margin:0 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:.05em;display:flex;justify-content:space-between;gap:8px;color:var(--mute)}
+.card h3 .model{text-transform:none;letter-spacing:0;font-weight:400}
+.lbl{font-size:11px;color:var(--mute);margin:8px 0 2px}
+.txt{white-space:pre-wrap;word-break:break-word;max-height:220px;overflow:auto}
+.na{color:var(--skip);font-style:italic}
+mark{background:var(--hl);color:inherit;border-radius:3px;padding:0 2px;cursor:help}
+.imgs img{max-width:100%;border:1px solid var(--line);border-radius:6px;margin-top:6px;display:block;cursor:zoom-in}
+.term{border-top:1px solid var(--line);padding:6px 0}.term:first-of-type{border-top:0}
+.term b{color:var(--accent)}
+.ans{font-size:15px;font-weight:600;white-space:pre-wrap}
+.c-input{grid-column:1;grid-row:1 / span 2}
+.c-ocr{grid-column:2;grid-row:1}.c-vlm{grid-column:2;grid-row:2}
+.c-gloss{grid-column:3;grid-row:1 / span 2}
+.c-tr{grid-column:4;grid-row:1 / span 2}
+.c-kb{grid-column:5;grid-row:1 / span 2}
+.c-ans{grid-column:6;grid-row:1 / span 2}
+.c-final{grid-column:7;grid-row:1 / span 2}
+.ctl{margin-top:10px;display:flex;gap:8px;align-items:center}
+.ctl .done{font-size:11px;color:var(--closed)}
+button.run,.msg button,.head button{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--bg);color:inherit;border-radius:6px;padding:3px 10px;cursor:pointer}
+button.run:hover,.msg button:hover,.head button:hover{border-color:var(--accent)}
+button:disabled{opacity:.5;cursor:wait}
+.msg{margin-top:8px;padding:7px 9px;border-radius:7px;font-size:12px;border:1px solid;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.m-warn{background:#fff4d6;border-color:#e2b93b;color:#5c4400}
+.m-err{background:#fde3e1;border-color:#d9534f;color:#7a1712}
+.m-info{background:var(--bg);border-color:var(--line);color:var(--mute)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .m-warn{background:#3d3210;color:#f1d98a}:root:not([data-theme=light]) .m-err{background:#40201f;color:#f4a9a5}}
+#scorebtn{background:var(--accent);color:#fff;margin:10px 16px;width:calc(100% - 32px);border-radius:8px;justify-content:center;border-left:0}
+#scorebtn:hover{background:var(--accent)}#scorebtn.on{outline:2px solid var(--ink)}
+#exportbtn{margin:0 16px 4px;width:calc(100% - 32px);border:1px solid var(--line);border-radius:8px;justify-content:center}
+#exportmsg{margin:0 16px 8px;font-size:11px;color:var(--mute)}
+.grade{margin-top:10px;padding-top:8px;border-top:1px solid var(--line)}
+.grade .pts{font-size:16px;font-weight:700}.g-full{color:var(--closed)}.g-zero{color:#c0392b}.g-part{color:var(--essay)}
+#score{display:none}
+.big{font-size:44px;font-weight:700;line-height:1.1}
+.bar{position:relative;height:16px;background:var(--line);border-radius:8px;margin:12px 0 4px;max-width:640px}
+.bar i{position:absolute;left:0;top:0;bottom:0;border-radius:8px;background:var(--accent)}
+.bar b{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--ink)}
+.scores{display:flex;gap:14px;flex-wrap:wrap;margin:16px 0}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 14px;min-width:150px}
+.stat .v{font-size:20px;font-weight:600}
+table.sc{border-collapse:collapse;width:100%;max-width:1000px;background:var(--panel);border:1px solid var(--line);border-radius:10px}
+table.sc th,table.sc td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+table.sc tr.row{cursor:pointer}table.sc tr.row:hover{background:var(--bg)}
+table.sc th{font-size:11px;text-transform:uppercase;color:var(--mute);letter-spacing:.05em}
+dialog{border:0;padding:0;background:transparent;max-width:95vw}dialog::backdrop{background:#000a}dialog img{max-width:95vw;max-height:92vh}
+@media(max-width:1000px){body{flex-direction:column;height:auto}aside{width:auto;max-height:180px;border-right:0;border-bottom:1px solid var(--line)}
+.flow{display:flex;flex-direction:column;min-width:0;gap:34px}main{padding:14px 16px;overflow:visible}}
+</style>
+</head>
+<body>
+<button id="sideopen" title="Show sidebar (b)">☰</button>
+<aside><div class="sidehead"><h1 id="title"></h1><button id="sidetoggle" title="Hide sidebar (b)">«</button></div><button id="scorebtn">📊 Final score</button><button id="exportbtn" title="Save full_answers.json with everything answered so far">⬇ Export answers</button><div id="exportmsg"></div><div id="runpanel"></div><div id="list"></div></aside>
+<main>
+  <div id="banner"></div>
+  <div class="head" id="head"></div>
+  <div class="flow" id="flow"></div>
+  <div id="score"></div>
+</main>
+<dialog id="zoom"><img alt=""></dialog>
+<script>
+let DATA = __DATA__;
+const LIVE = __LIVE__;
+const ST = {};   // `${id}:${stage}` -> {kind:'info'|'warn'|'err', msg, again?}
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let cur = 0, view = "flow", gradeMsg = "";
+const sel = new Set();
+let job = null, poll = null, lastTick = -1, dismissedTick = -1, optRefresh = false, optGrade = false;
+
+function hl(text, hits){           // wrap glossary matches (spans are char offsets into text)
+  let out = "", pos = 0;
+  for (const [s, e, gi] of hits || []) {
+    out += esc(text.slice(pos, s)) + `<mark title="${esc(DATA.glossary[gi].en + ": " + DATA.glossary[gi].definition)}">${esc(text.slice(s, e))}</mark>`;
+    pos = e;
+  }
+  return out + esc(text.slice(pos));
+}
+const block = (label, html, empty) => `<div class="lbl">${label}</div>` + (html ? `<div class="txt">${html}</div>` : `<div class="na">${empty || "not run"}</div>`);
+const model = role => `<span class="model">${esc(DATA.roles[role].name)}</span>`;
+
+function ctl(it, stage, done){
+  if (!LIVE) return "";
+  const st = ST[it.id + ":" + stage];
+  const busy = st && st.kind === "info";
+  return `<div class="ctl"><button class="run" data-run="${stage}" ${busy ? "disabled" : ""}>▶ Run</button>${done ? `<span class="done">✓ cached</span><button class="run" data-clear="${stage}" title="Delete this stage's saved result">🗑 Clear</button>` : ""}</div>` +
+    (st ? `<div class="msg m-${st.kind}">${esc(st.msg)}${st.again ? `<button data-run="${stage}" data-refresh="1">Re-run and overwrite</button>` : ""}</div>` : "");
+}
+
+const closedName = () => DATA.judge_model_closed === "exact" ? "exact match (free)" : DATA.judge_model_closed;
+const apiCalls = items => items.filter(i => i.kind !== "closed" || DATA.judge_model_closed !== "exact").length;
+function gradeClass(g){ return g.points >= g.max ? "g-full" : g.points === 0 ? "g-zero" : "g-part"; }
+function gradeBlock(it){
+  const g = it.grade;
+  return `<div class="grade"><div class="lbl">Grade · ${esc(g ? g.model : (it.kind === "closed" ? closedName() : DATA.judge_model))} vs official scheme</div>` +
+    (g ? `<div><span class="pts ${gradeClass(g)}">${g.points}/${g.max}</span> <span class="lbl">${esc(g.reason)}</span></div>` : `<div class="na">not graded</div>`) +
+    ctl(it, "judge", !!g) + `</div>`;
+}
+
+function render(){
+  if (view === "score") return renderScore();
+  document.querySelector("main").classList.remove("score-mode");
+  const it = DATA.items[cur];
+  $("#head").innerHTML = `<h2>Question ${esc(it.id)}</h2><span class="badge k-${it.kind}">${it.kind}</span><span class="lbl" style="margin:0">${it.points} pt · format: ${esc(it.format.split("\n")[0])}</span>` +
+    (LIVE ? `<button id="runall" style="margin-left:auto" title="Run the stages that are not done yet; finished ones are skipped">▶ Run this question</button><button id="rerunanswer" title="Redo the answer and final translation only (keeps OCR, image description, translation)">↻ Re-run answer</button><button id="rerunall" title="Redo every stage of this question, overwriting saved results">↻ Re-run everything</button><button id="clearall">🗑 Clear all results</button>` : `<span class="lbl" style="margin:0 0 0 auto">view only · start the server for Run buttons</span>`);
+
+  const seen = new Map();          // glossary entries hit anywhere in this item
+  for (const f of ["question","source","ocr"]) for (const h of it.hits[f]) seen.set(h[2], DATA.glossary[h[2]]);
+  const hasImg = it.images.length > 0, en = it.en;
+
+  const cards = {
+    input: `<div class="card c-input" id="n-input"><h3>1 · Input <span class="model">Polish</span></h3>
+      ${block("Question", hl(it.question, it.hits.question))}
+      ${block("Source text", hl(it.source, it.hits.source), "no source text")}
+      ${hasImg ? `<div class="imgs">${it.images.map(s => `<img src="${esc(s)}" alt="">`).join("")}</div>` : `<div class="lbl">No image</div>`}</div>`,
+    ocr: `<div class="card c-ocr ${hasImg ? "" : "skip"}" id="n-ocr"><h3>2 · OCR ${model("ocr")}</h3>
+      ${hasImg ? block("Text in image (Polish)", hl(it.ocr, it.hits.ocr), it.ocr_done ? "OCR ran: no text found in the image" : "not run yet") + ctl(it, "ocr", it.ocr_done) : `<div class="na">skipped: no image</div>`}</div>`,
+    vlm: `<div class="card c-vlm ${hasImg ? "" : "skip"}" id="n-vlm"><h3>3 · Image description ${model("vlm")}</h3>
+      ${hasImg ? block("Given: question + source + OCR", esc(it.vlm), it.vlm_done ? "the model returned an empty description" : "not run yet") + ctl(it, "vlm", it.vlm_done) : `<div class="na">skipped: no image</div>`}</div>`,
+    gloss: `<div class="card c-gloss ${seen.size ? "" : "skip"}" id="n-gloss"><h3>4 · Glossary <span class="model">dictionary</span></h3>
+      ${seen.size ? [...seen.values()].map(e => `<div class="term"><b>${esc(e.pl[0])}</b> → ${esc(e.en)}<div>${esc(e.definition)}</div></div>`).join("") : `<div class="na">no glossary terms found</div>`}</div>`,
+    tr: `<div class="card c-tr ${en ? "" : "skip"}" id="n-tr"><h3>5 · Translate PL→EN ${model("translator")}</h3>
+      ${en ? block("Question", esc(en.question)) + block("Source", esc(en.source)) + (en.ocr ? block("Image text", esc(en.ocr)) : "")
+           : `<div class="na">not run yet</div>`}${ctl(it, "translate", !!en)}</div>`,
+    kb: `<div class="card c-kb ${it.cards.length ? "" : "skip"}" id="n-kb"><h3>6 · Knowledge base <span class="model">BM25</span></h3>
+      ${it.cards.length ? it.cards.map(c => `<div class="term"><b>${esc(c.title)}</b><div>${esc(c.text)}</div></div>`).join("") : `<div class="na">${en ? "no matching cards" : "needs translation first"}</div>`}</div>`,
+    ans: `<div class="card c-ans" id="n-ans"><h3>7 · Answer (English) ${model("llm")}</h3>
+      ${it.kind === "essay" ? `<div class="na">essay: handled later</div>` :
+        it.answer != null ? `<div class="ans">${esc(it.answer) || "(empty)"}</div>` : `<div class="na">not run yet</div>`}
+      <div class="lbl">route: ${it.kind}</div>${it.kind === "essay" ? "" : ctl(it, "answer", it.answer != null)}</div>`,
+    final: `<div class="card c-final ${it.kind === "essay" ? "skip" : ""}" id="n-final"><h3>8 · Final answer (Polish) ${model("translator_back")}</h3>
+      ${it.kind === "essay" ? `<div class="na">essay: handled later</div>` :
+        it.final != null ? `<div class="ans">${esc(it.final) || "(empty)"}</div>` : `<div class="na">not run yet</div>`}
+      <div class="lbl">${it.kind === "open" ? "open answer: translated EN→PL" : it.kind === "closed" ? "closed answer: language-neutral, copied as is" : ""}</div>${it.kind === "essay" ? "" : ctl(it, "answer_pl", it.final != null)}
+      ${it.kind === "essay" ? "" : gradeBlock(it)}</div>`,
+  };
+  $("#flow").innerHTML = `<svg class="arrows" id="svg"></svg>` + Object.values(cards).join("");
+  document.querySelectorAll(".imgs img").forEach(i => i.onclick = () => { $("#zoom img").src = i.src; $("#zoom").showModal(); });
+  requestAnimationFrame(arrows);
+}
+
+async function reload(){ DATA = await (await fetch("/api/data")).json(); }
+
+async function runStage(stage, refresh, idx = cur){
+  const it = DATA.items[idx], key = it.id + ":" + stage;
+  ST[key] = {kind: "info", msg: "Running… (first run loads the model, this can take a while)"}; render();
+  let r, j;
+  try { r = await fetch("/api/run", {method: "POST", body: JSON.stringify({id: it.id, stage, refresh: !!refresh})}); j = await r.json(); }
+  catch (e) { ST[key] = {kind: "err", msg: "Server unreachable: " + e}; render(); return "err"; }
+  if (j.ok) { delete ST[key]; await reload(); render(); return "ok"; }
+  if (j.code === "already_run") { ST[key] = {kind: "warn", msg: "⚠ " + j.error, again: true}; render(); return "already"; }
+  ST[key] = {kind: "err", msg: "✖ " + j.error}; render(); return j.code === "skipped" ? "skip" : "err";
+}
+
+async function clearStage(stage){
+  const it = DATA.items[cur];
+  const what = stage === "all" ? `ALL saved results for question ${it.id}` : `the saved '${stage}' result for question ${it.id}`;
+  if (!confirm(`Delete ${what}? You will have to run it again.`)) return;
+  const j = await (await fetch("/api/delete", {method: "POST", body: JSON.stringify({id: it.id, stage})})).json();
+  for (const k of Object.keys(ST)) if (k.startsWith(it.id + ":") && (stage === "all" || k.endsWith(":" + stage))) delete ST[k];
+  if (!j.ok) { ST[it.id + ":" + (stage === "all" ? "ocr" : stage)] = {kind: "err", msg: "✖ " + j.error}; }
+  else if (stage !== "all") ST[it.id + ":" + stage] = {kind: "info", msg: j.cleared.length ? "Cleared. Downstream stages were kept and may now be stale." : "Nothing to clear."};
+  await reload(); render();
+}
+
+function renderScore(){
+  const main = document.querySelector("main"); main.classList.add("score-mode");
+  const items = DATA.items, graded = items.filter(i => i.grade);
+  const got = graded.reduce((a, i) => a + i.grade.points, 0), gmax = graded.reduce((a, i) => a + i.grade.max, 0);
+  const total = DATA.exam_max, pct = 100 * got / total, tgt = DATA.target * total;
+  const kinds = ["closed", "open", "essay"].map(k => {
+    const its = items.filter(i => i.kind === k), g = its.filter(i => i.grade);
+    return {k, got: g.reduce((a, i) => a + i.grade.points, 0), max: its.reduce((a, i) => a + i.points, 0), n: g.length, of: its.length};
+  });
+  const todo = items.filter(i => i.kind !== "essay" && i.final != null && !i.grade);
+  const noAnswer = items.filter(i => i.kind !== "essay" && i.final == null).length;
+  const verdict = got >= tgt ? `✅ target reached (${tgt} pts = ${DATA.target * 100}%)` : `${(tgt - got)} more points needed to reach ${DATA.target * 100}% (${tgt} pts)`;
+  $("#score").innerHTML = `
+    <div class="head"><h2>Final score</h2><span class="lbl" style="margin:0">open questions: ${esc(DATA.judge_model)} · closed questions: ${esc(closedName())} · official 2023 scheme</span>
+      ${LIVE ? `<button id="gradeall" style="margin-left:auto" ${todo.length ? "" : "disabled"}>▶ Grade ${todo.length} answered, ungraded question${todo.length === 1 ? "" : "s"}</button>` : ""}</div>
+    ${gradeMsg ? `<div class="msg m-info">${esc(gradeMsg)}</div>` : ""}
+    <div class="big">${got} <span style="font-size:22px;color:var(--mute)">/ ${total} pts · ${pct.toFixed(1)}%</span></div>
+    <div class="bar"><i style="width:${Math.min(100, pct)}%"></i><b style="left:${DATA.target * 100}%" title="target ${DATA.target * 100}%"></b></div>
+    <div class="lbl">${verdict}. Ungraded questions and the essay count as 0.</div>
+    <div class="scores">
+      <div class="stat"><div class="lbl">Graded so far</div><div class="v">${graded.length} / ${items.length} items</div>${gmax ? `<div class="lbl">${got}/${gmax} pts on those (${(100 * got / gmax).toFixed(0)}%)</div>` : ""}</div>
+      ${kinds.map(x => `<div class="stat"><div class="lbl"><span class="badge k-${x.k}">${x.k}</span></div><div class="v">${x.got} / ${x.max} pts</div><div class="lbl">${x.n} of ${x.of} graded</div></div>`).join("")}
+      <div class="stat"><div class="lbl">No answer yet</div><div class="v">${noAnswer}</div></div>
+    </div>
+    <table class="sc"><tr><th>Q</th><th>Type</th><th>Score</th><th>Judge's reason</th></tr>
+    ${items.map((i, n) => `<tr class="row" data-i="${n}"><td><b>${esc(i.id)}</b></td><td><span class="badge k-${i.kind}">${i.kind}</span></td>
+      <td>${i.grade ? `<span class="pts ${gradeClass(i.grade)}">${i.grade.points}/${i.grade.max}</span>` : `<span class="na">${i.kind === "essay" ? "not graded (essay)" : i.final == null ? "no answer" : "not graded"} · 0/${i.points}</span>`}</td>
+      <td>${i.grade ? esc(i.grade.reason) : ""}</td></tr>`).join("")}</table>`;
+}
+
+async function gradeAll(){
+  const todo = DATA.items.map((it, n) => [it, n]).filter(([i]) => i.kind !== "essay" && i.final != null && !i.grade);
+  if (!todo.length) return;
+  const calls = apiCalls(todo.map(([i]) => i));
+  if (!confirm(`Grade ${todo.length} answers? ${calls} need ${DATA.judge_model} (up to ${calls} API calls, ~700 input tokens each); the other ${todo.length - calls} are closed questions graded for free by exact match.`)) return;
+  let ok = 0, fail = 0;
+  for (const [it, n] of todo) {
+    gradeMsg = `Grading question ${it.id}… (${ok + fail + 1}/${todo.length})`; renderScore();
+    const res = await runStage("judge", false, n);
+    if (res === "ok") ok++; else { fail++; gradeMsg = `Stopped at question ${it.id}: ${(ST[it.id + ":judge"] || {}).msg || "error"}`; break; }
+  }
+  gradeMsg = fail ? gradeMsg : `Graded ${ok} answers.`;
+  await reload(); render();
+}
+
+async function exportAnswers(){
+  if (LIVE) await reload();          // pick up anything just run
+  const answers = DATA.items.map(i => ({id: i.id, answer: i.final || ""}));
+  const n = answers.filter(a => a.answer.trim()).length;
+  let where = "downloaded";
+  if (LIVE) { try { const j = await (await fetch("/api/export", {method: "POST"})).json(); if (j.ok) where = "saved to outputs/ and downloaded"; } catch (e) {} }
+  const url = URL.createObjectURL(new Blob([JSON.stringify({exam_id: DATA.exam_id, answers}, null, 2)], {type: "application/json"}));
+  const a = Object.assign(document.createElement("a"), {href: url, download: "full_answers.json"}); a.click(); URL.revokeObjectURL(url);
+  $("#exportmsg").textContent = `${n} of ${answers.length} answered (others empty) · ${where}`;
+}
+
+// ---------- sidebar list, batch panel, banner ----------
+function rowMark(it){
+  if (job && job.running && job.id === it.id) return ["⏳", ""];
+  if (job && job.failed.some(f => f.id === it.id)) return ["✗", "bad"];
+  return it.kind !== "essay" && it.final != null ? ["✓", "good"] : ["", ""];
+}
+function buildList(){
+  const box = $("#list"), top = box.scrollTop;
+  box.innerHTML = DATA.items.map((it, i) => { const [m, c] = rowMark(it);
+    return `<div class="qrow ${i === cur && view === "flow" ? "on" : ""}" data-i="${i}">${LIVE ? `<input type="checkbox" data-sel="${esc(it.id)}" ${sel.has(it.id) ? "checked" : ""} title="select for a batch run">` : ""}` +
+      `<b>${esc(it.id)}</b><span class="badge k-${it.kind}">${it.kind}</span><span class="mark ${c}">${m}</span><span class="pts">${it.points} pt</span></div>`; }).join("");
+  box.scrollTop = top;
+}
+function buildPanel(){
+  if (!LIVE) { $("#runpanel").innerHTML = ""; return; }
+  const n = sel.size, busy = job && job.running;
+  const all = DATA.items.filter(i => i.kind !== "essay"), picked = all.filter(i => sel.has(i.id)).length;
+  $("#runpanel").innerHTML = `<label class="opt" style="color:var(--ink);font-weight:600;margin:0"><input type="checkbox" id="selall" ${picked === all.length ? "checked" : ""}> Select all (${all.length}, essay excluded)</label>
+    <div class="selbtns"><button data-pick="all">All</button><button data-pick="todo">Not done</button><button data-pick="none">None</button></div>
+    <label class="opt"><input type="checkbox" id="optRefresh" ${optRefresh ? "checked" : ""}> re-run stages already done</label>
+    <label class="opt"><input type="checkbox" id="optGrade" ${optGrade ? "checked" : ""}> also grade (${esc(DATA.judge_model)} for open; closed are free)</label>
+    <button class="primary" id="runsel" ${n && !busy ? "" : "disabled"}>${busy ? "Running…" : `▶ Run ${n} selected`}</button><div id="runmsg"></div>`;
+  $("#selall").indeterminate = picked > 0 && picked < all.length;   // partial selection
+}
+function buildBanner(){
+  const b = $("#banner");
+  if (!LIVE || !job || !job.queue.length || (!job.running && job.tick === dismissedTick)) { b.style.display = "none"; return; }
+  const done = job.ok.length + job.failed.length + job.skipped.length, pct = job.total ? 100 * done / job.total : 0;
+  b.style.display = "block";
+  if (job.running) {
+    b.innerHTML = `<b>Running question ${esc(job.id ?? "…")}</b> · ${esc(job.stage ?? "starting")} · ${done}/${job.total} questions done
+      <button id="stopbtn" ${job.stop ? "disabled" : ""}>■ Stop</button> <span class="lbl">${esc(job.note || "")}</span><div class="prog"><i style="width:${pct}%"></i></div>`;
+  } else {
+    b.innerHTML = `<b>Batch ${job.stop ? "stopped" : "finished"}:</b> ${job.ok.length} ok${job.failed.length ? `, <span class="bad">${job.failed.length} failed</span>` : ""}${job.skipped.length ? `, ${job.skipped.length} skipped (${esc(job.skipped.map(x => x.id).join(", "))}: ${esc(job.skipped[0].reason)})` : ""}
+      <span class="lbl">${esc(job.note || "")}</span> <span class="lbl">· ${job.ran} stage${job.ran === 1 ? "" : "s"} ran, ${job.cached} already done${job.ran === 0 && job.cached > 0 && !job.failed.length ? " — nothing to do; use ↻ Re-run to overwrite" : ""}</span><button id="dismissbtn">Dismiss</button>` +
+      job.failed.slice(0, 5).map(f => `<div class="bad">✗ <a data-goto="${esc(f.id)}">${esc(f.id)}</a> (${esc(f.stage)}): ${esc(f.error)}</div>`).join("") +
+      (job.failed.length > 5 ? `<div class="lbl">…and ${job.failed.length - 5} more</div>` : "");
+  }
+}
+function refreshChrome(){ buildList(); buildPanel(); buildBanner(); }
+
+async function pollOnce(){
+  try { job = await (await fetch("/api/status")).json(); } catch (e) { return; }
+  if (job.tick !== lastTick) { lastTick = job.tick; await reload(); refreshChrome(); render(); } else buildBanner();
+  if (!job.running && poll) { clearInterval(poll); poll = null; }
+}
+function startPoll(){ if (!poll) poll = setInterval(pollOnce, 1000); }
+
+async function runBatch(ids, refresh, grade, from_stage = null){
+  if (!ids.length) return;
+  const calls = apiCalls(DATA.items.filter(i => ids.includes(i.id) && i.kind !== "essay"));
+  if (grade && calls && !confirm(`Also grade? ${calls} open question(s) will call ${DATA.judge_model} (up to ${calls} API calls). Closed questions are graded for free.`)) return;
+  const j = await (await fetch("/api/batch", {method: "POST", body: JSON.stringify({ids, refresh, grade, from_stage})})).json();
+  if (!j.ok) { const m = $("#runmsg"); if (m) m.textContent = j.error; return; }
+  dismissedTick = -1; startPoll(); await pollOnce();
+}
+const selectedIds = () => DATA.items.filter(i => sel.has(i.id)).map(i => i.id);   // exam order
+function runAll(){ runBatch([DATA.items[cur].id], false, false); }
+function rerunAnswer(){ runBatch([DATA.items[cur].id], true, false, "answer"); }
+function rerunEverything(){
+  if (confirm(`Redo every stage of question ${DATA.items[cur].id}, overwriting saved results (the image model can take a while)?`)) runBatch([DATA.items[cur].id], true, false);
+}
+
+const EDGES = [["input","ocr"],["input","vlm"],["ocr","vlm"],["input","gloss"],["ocr","gloss"],["gloss","tr"],["input","tr"],
+               ["ocr","tr"],["tr","kb"],["tr","ans"],["kb","ans"],["vlm","ans"],["gloss","ans"],["ans","final"]];
+
+function arrows(){
+  const flow = $("#flow"), svg = $("#svg"), base = flow.getBoundingClientRect();
+  svg.setAttribute("width", flow.scrollWidth); svg.setAttribute("height", flow.scrollHeight);
+  const stacked = getComputedStyle(flow).display === "flex";
+  let d = `<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="var(--mute)" stroke="none"/></marker></defs>`;
+  for (const [a, b] of EDGES) {
+    const A = $("#n-"+a), B = $("#n-"+b); if (!A || !B) continue;
+    const ra = A.getBoundingClientRect(), rb = B.getBoundingClientRect();
+    const dim = A.classList.contains("skip") || B.classList.contains("skip");
+    let x1, y1, x2, y2, path;
+    if (!stacked && rb.left >= ra.right - 4) {          // horizontal: right edge → left edge
+      x1 = ra.right - base.left; y1 = ra.top + ra.height/2 - base.top; x2 = rb.left - base.left; y2 = rb.top + rb.height/2 - base.top;
+      const mx = (x1 + x2) / 2; path = `M${x1} ${y1} C${mx} ${y1} ${mx} ${y2} ${x2-2} ${y2}`;
+    } else {                                              // vertical: bottom → top
+      x1 = ra.left + ra.width/2 - base.left; y1 = ra.bottom - base.top; x2 = rb.left + rb.width/2 - base.left; y2 = rb.top - base.top;
+      const my = (y1 + y2) / 2; path = `M${x1} ${y1} C${x1} ${my} ${x2} ${my} ${x2} ${y2-2}`;
+    }
+    d += `<path class="${dim ? "dim" : ""}" d="${path}" marker-end="url(#ah)"/>`;
+  }
+  svg.innerHTML = d;
+}
+
+$("#title").textContent = DATA.exam_id;
+$("#list").onclick = e => {
+  const cb = e.target.closest("[data-sel]");
+  if (cb) { cb.checked ? sel.add(cb.dataset.sel) : sel.delete(cb.dataset.sel); buildPanel(); return; }
+  const r = e.target.closest(".qrow"); if (!r) return; cur = +r.dataset.i; select();
+};
+$("#runpanel").onclick = e => {
+  const pk = e.target.closest("[data-pick]");
+  if (pk) { sel.clear(); if (pk.dataset.pick !== "none") DATA.items.forEach(i => { if (i.kind !== "essay" && (pk.dataset.pick === "all" || i.final == null)) sel.add(i.id); });
+            buildList(); buildPanel(); }
+  if (e.target.id === "runsel") runBatch(selectedIds(), optRefresh, optGrade);
+};
+$("#runpanel").onchange = e => {
+  if (e.target.id === "selall") { sel.clear(); if (e.target.checked) DATA.items.forEach(i => { if (i.kind !== "essay") sel.add(i.id); }); buildList(); buildPanel(); return; } if (e.target.id === "optRefresh") optRefresh = e.target.checked; if (e.target.id === "optGrade") optGrade = e.target.checked; };
+$("#banner").onclick = e => {
+  if (e.target.id === "stopbtn") fetch("/api/stop", {method: "POST"}).then(pollOnce);
+  if (e.target.id === "dismissbtn") { dismissedTick = job.tick; buildBanner(); }
+  const g = e.target.closest("[data-goto]"); if (g) { cur = DATA.items.findIndex(i => i.id === g.dataset.goto); select(); }
+};
+document.onkeydown = e => {
+  if (e.key === "b" && !e.metaKey && !e.ctrlKey && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) return setSidebar(!document.body.classList.contains("collapsed")); if (e.key === "ArrowDown" || e.key === "j") { cur = Math.min(cur+1, DATA.items.length-1); select(); }
+                            if (e.key === "ArrowUp" || e.key === "k") { cur = Math.max(cur-1, 0); select(); } };
+$("#flow").onclick = e => { const b = e.target.closest("[data-run]"); if (b) return runStage(b.dataset.run, !!b.dataset.refresh);
+  const c = e.target.closest("[data-clear]"); if (c) clearStage(c.dataset.clear); };
+$("#head").onclick = e => { if (e.target.id === "runall") runAll(); if (e.target.id === "rerunanswer") rerunAnswer(); if (e.target.id === "rerunall") rerunEverything(); if (e.target.id === "clearall") clearStage("all"); };
+function setSidebar(collapsed){
+  document.body.classList.toggle("collapsed", collapsed);
+  try { localStorage.setItem("sidebarCollapsed", collapsed ? "1" : "0"); } catch (e) {}
+  requestAnimationFrame(arrows);      // the flow gets more room: redraw the arrows
+}
+$("#sidetoggle").onclick = () => setSidebar(true);
+$("#sideopen").onclick = () => setSidebar(false);
+try { if (localStorage.getItem("sidebarCollapsed") === "1") document.body.classList.add("collapsed"); } catch (e) {}
+$("#exportbtn").onclick = exportAnswers;
+$("#scorebtn").onclick = async () => { view = "score"; gradeMsg = ""; if (LIVE) await reload(); $("#scorebtn").classList.add("on");
+  buildList(); render(); };
+$("#score").onclick = e => { if (e.target.id === "gradeall") return gradeAll(); const r = e.target.closest("tr.row"); if (r) { cur = +r.dataset.i; select(); } };
+$("#zoom").onclick = () => $("#zoom").close();
+window.onresize = arrows;
+function select(){ view = "flow"; $("#scorebtn").classList.remove("on"); buildList(); render(); location.hash = DATA.items[cur].id; }
+const h = DATA.items.findIndex(i => i.id === location.hash.slice(1)); if (h >= 0) cur = h;
+buildPanel();
+select();
+if (LIVE) pollOnce().then(() => { if (job && job.running) startPoll(); });
+</script>
+</body>
+</html>

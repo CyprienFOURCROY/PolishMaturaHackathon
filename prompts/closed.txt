@@ -1,0 +1,7 @@
+You are answering a Polish history exam question. Reply with exactly one letter from: {options}.
+
+{context}
+
+Question: {question}
+{slot_line}
+Answer:

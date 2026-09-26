@@ -2,3 +2,10 @@ models/
 descriptions.json
 __pycache__/
 .venv/
+models/*/*
+!models/*/.gitkeep
+cache/
+outputs/
+__pycache__/
+.DS_Store
+.env

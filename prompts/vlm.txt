@@ -1,0 +1,5 @@
+This image is a source in a Polish history exam. Question: {question}
+Source text: {source}
+Text read from the image (OCR, may contain errors): {ocr}
+
+Describe only what in the image is relevant to answering the question (symbols, people, captions, map regions, dates). Be short and factual.

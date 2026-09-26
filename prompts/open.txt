@@ -1,0 +1,7 @@
+You are answering a Polish history exam question. Answer briefly and factually, using the facts below.
+
+{context}
+
+Question: {question}
+
+Answer:

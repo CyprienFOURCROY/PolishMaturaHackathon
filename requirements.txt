@@ -5,3 +5,7 @@ pillow
 easyocr
 num2words
 huggingface_hub
+sentencepiece
+sacremoses
+openai
+pypdf
