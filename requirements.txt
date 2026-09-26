@@ -1,0 +1,7 @@
+torch
+torchvision
+transformers>=5.1
+pillow
+easyocr
+num2words
+huggingface_hub

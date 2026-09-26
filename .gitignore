@@ -1,0 +1,4 @@
+models/
+descriptions.json
+__pycache__/
+.venv/
