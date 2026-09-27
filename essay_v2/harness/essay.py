@@ -333,6 +333,9 @@ def fallback_paragraph(aspekt, facts, teza):
 
 # ---------------------------------------------------------------- generation loop
 def best_paragraph(model, temat, aspekt, facts, teza, n, log):
+    if model in ("none", "template", ""):        # no model: deterministic template from the retrieved facts
+        log.append(dict(aspekt=aspekt, tier=3, tried=0, passed=0, gates={}))
+        return fallback_paragraph(aspekt, facts, teza), 3
     tried = []
     for round_ in range(2):
         for i in range(n):
