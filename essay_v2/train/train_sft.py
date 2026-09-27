@@ -5,8 +5,9 @@
 Input: JSONL with {"messages":[{"role":"system"|"user"|"assistant","content":...}]} (chat format).
 Output: merged full model in --out (safetensors + tokenizer), ready for llama.cpp convert_hf_to_gguf.py.
 Needs: torch, transformers>=4.44, trl>=0.9, datasets. Tested design for one 24-48 GB GPU (bf16, batch 4 x accum 4).
-Loss is computed on assistant tokens only (TRL completion-only via assistant_only_loss when the chat template
-supports it; falls back to full-sequence loss with a warning)."""
+Loss is computed on assistant tokens only: examples are fed to TRL as conversational prompt/completion pairs
+(prompt = system+user turns, completion = assistant turn), so TRL masks the prompt (completion_only_loss). This works
+with any chat template (ChatML has no {% generation %} markers, which TRL's assistant_only_loss would require)."""
 import argparse, json, os, sys, time
 from datasets import load_dataset
 
@@ -29,9 +30,13 @@ if tok.pad_token is None:
 model = AutoModelForCausalLM.from_pretrained(a.model, torch_dtype=torch.bfloat16, attn_implementation="sdpa")
 
 data = load_dataset("json", data_files={"train": a.train, **({"val": a.val} if a.val else {})})
-keep = lambda ex: {"messages": ex["messages"]}
-train_ds = data["train"].map(keep, remove_columns=[c for c in data["train"].column_names if c != "messages"])
-val_ds = data["val"].map(keep, remove_columns=[c for c in data["val"].column_names if c != "messages"]) if a.val else None
+# prompt/completion split: last message must be the assistant turn; everything before it is the prompt
+def keep(ex):
+    msgs = ex["messages"]
+    assert msgs[-1]["role"] == "assistant", "last message must be the assistant turn"
+    return {"prompt": msgs[:-1], "completion": msgs[-1:]}
+train_ds = data["train"].map(keep, remove_columns=data["train"].column_names)
+val_ds = data["val"].map(keep, remove_columns=data["val"].column_names) if a.val else None
 print(f"train examples: {len(train_ds)}" + (f" | val: {len(val_ds)}" if val_ds else ""))
 
 cfg_kwargs = dict(
@@ -43,14 +48,15 @@ cfg_kwargs = dict(
 # --- TRL version tolerance: keep only kwargs this SFTConfig knows, map renamed ones ---
 import inspect
 sig = set(inspect.signature(SFTConfig.__init__).parameters)
-renames = {"max_length": "max_seq_length", "eval_strategy": "evaluation_strategy"}
+# transformers 5.x dropped warmup_ratio; warmup_steps accepts a float in [0,1) as a ratio instead
+renames = {"max_length": "max_seq_length", "eval_strategy": "evaluation_strategy", "warmup_ratio": "warmup_steps"}
 for new, old in renames.items():
     if new not in sig and old in sig and new in cfg_kwargs:
         cfg_kwargs[old] = cfg_kwargs.pop(new)
-if "assistant_only_loss" in sig:
-    cfg_kwargs["assistant_only_loss"] = True          # loss on assistant turns only
+if "completion_only_loss" in sig:
+    cfg_kwargs["completion_only_loss"] = True         # loss on the completion (assistant turn) only
 else:
-    print("WARNING: this TRL has no assistant_only_loss; training on full sequences", file=sys.stderr)
+    print("WARNING: this TRL has no completion_only_loss; training on full sequences", file=sys.stderr)
 dropped = [k for k in cfg_kwargs if k not in sig]
 for k in dropped:
     print(f"WARNING: SFTConfig has no '{k}', dropping", file=sys.stderr); cfg_kwargs.pop(k)
