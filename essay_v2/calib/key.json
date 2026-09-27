@@ -1,0 +1,80 @@
+[
+ {
+  "id": "E1",
+  "src": "batch_41_v3_judged.jsonl:1",
+  "variant": 3,
+  "sol": 7,
+  "sol_A": 5,
+  "sol_B": 2,
+  "sol_levels": [
+   "powierzchowna",
+   "zadowalajaca",
+   "powierzchowna"
+  ]
+ },
+ {
+  "id": "E2",
+  "src": "batch_41_v3_judged.jsonl:2",
+  "variant": 3,
+  "sol": 9,
+  "sol_A": 7,
+  "sol_B": 2,
+  "sol_levels": [
+   "zadowalajaca",
+   "zadowalajaca",
+   "powierzchowna"
+  ]
+ },
+ {
+  "id": "E3",
+  "src": "batch_41_v5_judged.jsonl:2",
+  "variant": 5,
+  "sol": 11,
+  "sol_A": 8,
+  "sol_B": 3,
+  "sol_levels": [
+   "zadowalajaca",
+   "zadowalajaca",
+   "powierzchowna"
+  ]
+ },
+ {
+  "id": "E4",
+  "src": "batch_12_v1_judged.jsonl:2",
+  "variant": null,
+  "sol": 12,
+  "sol_A": 9,
+  "sol_B": 3,
+  "sol_levels": [
+   "zadowalajaca",
+   "zadowalajaca",
+   "zadowalajaca"
+  ]
+ },
+ {
+  "id": "E5",
+  "src": "batch_21_v2_judged.jsonl:1",
+  "variant": 2,
+  "sol": 8,
+  "sol_A": 5,
+  "sol_B": 3,
+  "sol_levels": [
+   "powierzchowna",
+   "powierzchowna",
+   "zadowalajaca"
+  ]
+ },
+ {
+  "id": "E6",
+  "src": "batch_41_v4_judged.jsonl:1",
+  "variant": 4,
+  "sol": 12,
+  "sol_A": 9,
+  "sol_B": 3,
+  "sol_levels": [
+   "zadowalajaca",
+   "zadowalajaca",
+   "zadowalajaca"
+  ]
+ }
+]

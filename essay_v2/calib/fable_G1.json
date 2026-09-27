@@ -1,0 +1,31 @@
+{
+  "judge": "fable",
+  "id": "G1",
+  "aspekty": [
+    {
+      "nazwa": "polityczny",
+      "poziom": "zadowalajaca",
+      "funkcjonalnosc": "pelna",
+      "uzasadnienie": "Argumentacja rzeczowa i odniesiona do tezy: brak reprezentacji kolonii w parlamencie brytyjskim, I Kongres Kontynentalny 1774, spor o glosowanie 'wedlug glow' w Stanach Generalnych, przeksztalcenie deputowanych stanu trzeciego w Zgromadzenie Narodowe; kazdy fakt zamkniety wnioskiem i wspolnym mianownikiem (prawo do wspoldecydowania). Faktografia poprawna, ale podstawowa i nieszczegolowa: po stronie francuskiej brak jakiejkolwiek daty (1789), brak absolutyzmu jako pojecia, brak ustaw represyjnych 1774 z nazwy, brak Bostonu. Element refleksji jest, wnikliwej analizy nie ma - nie 'bogata'."
+    },
+    {
+      "nazwa": "spoleczno-gospodarczy",
+      "poziom": "zadowalajaca",
+      "funkcjonalnosc": "pelna",
+      "uzasadnienie": "Poprawnie: dlug po wojnie siedmioletniej i koszty utrzymania wojsk jako przyczyna fiskalizmu brytyjskiego, ustawa stemplowa 1765, bojkot towarow; we Francji przywileje podatkowe duchowienstwa i szlachty, zadluzenie monarchii, niewydolny system podatkowy. Autor uczciwie zauwaza, ze zrodla problemow byly rozne, co jest elementem namyslu. Brakuje jednak konkretu francuskiego (kryzys finansowy, nieurodzaj 1788, ceny chleba, proby reform Turgota/Neckera/Calonne'a) i porownania kondycji obu spoleczenstw (zamozne kolonie bez struktury stanowej vs. Francja stanowa) - argumentacja pozostaje na poziomie zadowalajacym."
+    },
+    {
+      "nazwa": "kulturowy",
+      "poziom": "zadowalajaca",
+      "funkcjonalnosc": "pelna",
+      "uzasadnienie": "Trafnie: oswiecenie podwaza absolutyzm i przywileje, prawa naturalne i suwerennosc ludu, Locke i prawo oporu (zycie, wolnosc, wlasnosc), Deklaracja niepodleglosci 1776, Deklaracja praw czlowieka i obywatela. Wniosek o wspolnym jezyku krytyki jest refleksja. Faktografia jednak uboga: jeden filozof, brak Monteskiusza, Rousseau, Voltaire'a, brak daty deklaracji francuskiej (1789), brak roli publicystyki (Paine) czy udzialu Francuzow w wojnie amerykanskiej jako kanalu transferu idei. Poprawne, nie poglebione."
+    }
+  ],
+  "A_przed_odjeciem": 9,
+  "bledy_merytoryczne": [],
+  "odjecie": 0,
+  "A": 9,
+  "B": 3,
+  "suma": 12,
+  "najwazniejsza_slabosc": "Wszystkie trzy aspekty zatrzymuja sie na poziomie zadowalajacym: faktografia poprawna, ale podstawowa i asymetryczna (strona amerykanska datowana, strona francuska niemal bez dat i nazwisk), a porownanie ogranicza sie do stwierdzenia podobienstwa bez wnikliwej analizy roznic; to blokuje poziom 'bogata' i pulap 10-12 pkt."
+}

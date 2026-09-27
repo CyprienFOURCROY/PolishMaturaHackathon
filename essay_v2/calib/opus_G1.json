@@ -1,0 +1,31 @@
+{
+  "judge": "opus",
+  "id": "G1",
+  "aspekty": [
+    {
+      "nazwa": "polityczny",
+      "poziom": "zadowalajaca",
+      "funkcjonalnosc": "pelna",
+      "uzasadnienie": "Prawidłowa faktografia (no taxation without representation, I Kongres Kontynentalny 1774, spór o głosowanie w Stanach Generalnych, Zgromadzenie Narodowe) i trafne zestawienie wspólnego mianownika: prawo do współdecydowania. Brak jednak szczegółów pogłębiających (np. ustawy represyjne 1774, Tea Act, kryzys absolutyzmu Ludwika XVI, 17 czerwca 1789) i brak namysłu nad różnicą: kolonie kontra metropolia vs konflikt wewnątrzpaństwowy. Nie osiąga poziomu bogatego."
+    },
+    {
+      "nazwa": "społeczno-gospodarczy",
+      "poziom": "zadowalajaca",
+      "funkcjonalnosc": "pelna",
+      "uzasadnienie": "Część amerykańska konkretna (dług po wojnie siedmioletniej, ustawa stemplowa 1765, bojkot). Część francuska ogólnikowa: przywileje stanów uprzywilejowanych i zadłużenie bez dat, liczb czy postaci (brak kosztów udziału w wojnie o niepodległość USA, bankructwa skarbu 1788, Calonne/Necker, nieurodzaju 1788). Jest element refleksji (źródła różne, efekt podobny) spójny ze stanowiskiem."
+    },
+    {
+      "nazwa": "kulturowy",
+      "poziom": "zadowalajaca",
+      "funkcjonalnosc": "pelna",
+      "uzasadnienie": "Poprawnie wskazane oświecenie, prawa naturalne, suwerenność ludu, Locke. Słabość: po stronie francuskiej brak myśliciela (Monteskiusz, Rousseau), a jako dowód przyczyn użyto deklaracji z 1776 i 1789, które są skutkiem/wyrazem rewolucji, nie jej przyczyną — skrót przyczynowo-skutkowy, choć nie ewidentny błąd. Argument nadal wspiera tezę, więc funkcjonalność utrzymana."
+    }
+  ],
+  "A_przed_odjeciem": 9,
+  "bledy_merytoryczne": [],
+  "odjecie": 0,
+  "A": 9,
+  "B": 2,
+  "suma": 11,
+  "najwazniejsza_slabosc": "Brak pogłębienia i szczegółowej faktografii zwłaszcza po stronie francuskiej (brak konkretów o kryzysie skarbu i myślicieli francuskiego oświecenia), a w aspekcie kulturowym deklaracje-skutki rewolucji użyte jako dowód jej przyczyn; akapity mają równoległą, przestawialną budowę i urywany styl krótkich zdań, co obniża B."
+}

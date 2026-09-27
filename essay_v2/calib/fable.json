@@ -1,0 +1,185 @@
+{
+  "judge": "fable",
+  "essays": [
+    {
+      "id": "E1",
+      "aspekty": [
+        {
+          "nazwa": "kulturowy",
+          "poziom": "powierzchowna",
+          "funkcjonalnosc": "czesciowa",
+          "uzasadnienie": "Poprawna faktografia (UŁ i UMK 1945, Ossolineum do Wrocławia 1946–47, BOS 1945), ale argumentacja nie wnika w istotę pojęcia 'przełom': odtworzenie/poszerzenie sieci instytucji jest utożsamione z przełomem bez wyjaśnienia, co zmieniło się jakościowo w kulturze (polityka kulturalna, upowszechnienie, kontrola państwa). Komentarze do faktów są trywialne ('poszerzyła się sieć szkolnictwa')."
+        },
+        {
+          "nazwa": "gospodarczy",
+          "poziom": "zadowalajaca",
+          "funkcjonalnosc": "pelna",
+          "uzasadnienie": "Trafnie dobrane fakty (dekret PKWN o reformie rolnej 1944, bitwa o handel 1947, Ziemie Zachodnie i Północne) i element refleksji: przełom to zmiana stosunków własnościowych, nie tylko usuwanie zniszczeń. Brak nacjonalizacji przemysłu (1946) i planu trzyletniego ogranicza głębię."
+        },
+        {
+          "nazwa": "spoleczny",
+          "poziom": "zadowalajaca",
+          "funkcjonalnosc": "pelna",
+          "uzasadnienie": "Straty demograficzne, repatriacja z ziem wcielonych do ZSRR, PUR, wysiedlenia Niemców – fakty prawidłowe i adekwatne do tezy o przełomie; wniosek o tworzeniu nowych społeczności jest elementem namysłu. Analiza pozostaje jednak opisowa."
+        }
+      ],
+      "A_przed_odjeciem": 8,
+      "bledy_merytoryczne": [],
+      "odjecie": 0,
+      "A": 8,
+      "B": 3,
+      "suma": 11,
+      "najwazniejsza_slabosc": "Pojęcie 'przełom' nie jest analizowane – aspekt kulturowy to katalog odtworzonych instytucji z jednozdaniowymi komentarzami, bez wskazania, co jakościowo się zmieniło."
+    },
+    {
+      "id": "E2",
+      "aspekty": [
+        {
+          "nazwa": "kulturowy",
+          "poziom": "zadowalajaca",
+          "funkcjonalnosc": "pelna",
+          "uzasadnienie": "Prawidłowa i szczegółowa faktografia (Szkoła Główna 1862–69, Cybulski i Szymonowicz 1895, Confiteor 1899, Wesele 1901), fakty powiązane z tezą o przełomie; refleksja płytka, ale obecna (zmiana myślenia o zadaniach twórców)."
+        },
+        {
+          "nazwa": "miedzynarodowy",
+          "poziom": "zadowalajaca",
+          "funkcjonalnosc": "pelna",
+          "uzasadnienie": "Dwie Nagrody Nobla Skłodowskiej-Curie (1903, 1911), Sienkiewicz 1905, Domeyko jako rektor Uniwersytetu Chilijskiego 1867–83 – poprawne i adekwatne. Argumentacja ma charakter wyliczenia dowodów uznania, z minimalnym namysłem."
+        },
+        {
+          "nazwa": "spoleczno-gospodarczy",
+          "poziom": "powierzchowna",
+          "funkcjonalnosc": "czesciowa",
+          "uzasadnienie": "Materiał w większości nie dotyczy społeczeństwa ani gospodarki ziem polskich: profesura Skłodowskiej-Curie na Sorbonie i górnictwo w Chile to dorobek za granicą. Jedynie Uniwersytet Latający i most Kierbedzia (1864) odnoszą się do aspektu, ale bez analizy zmian społecznych czy gospodarczych. Człon tezy 'mimo ograniczonych możliwości rozwoju' (rusyfikacja, germanizacja, brak państwa) w ogóle nie został pokazany."
+        }
+      ],
+      "A_przed_odjeciem": 8,
+      "bledy_merytoryczne": [],
+      "odjecie": 0,
+      "A": 8,
+      "B": 2,
+      "suma": 10,
+      "najwazniejsza_slabosc": "Teza mówi o przełomie 'mimo ograniczonych możliwości', a praca nigdy nie pokazuje tych ograniczeń; wstęp zapowiada 'rozwój gospodarczy', którego rozwinięcie nie dostarcza (jeden most i kopalnie w Chile)."
+    },
+    {
+      "id": "E3",
+      "aspekty": [
+        {
+          "nazwa": "kulturowy",
+          "poziom": "zadowalajaca",
+          "funkcjonalnosc": "pelna",
+          "uzasadnienie": "Ta sama poprawna faktografia jak w pracach o tej epoce, powiązana z tezą o sukcesie; dodatkowy element refleksji – twórcy (Wesele) dostrzegali słabości społeczeństwa, co nie przekreśla sukcesu kultury."
+        },
+        {
+          "nazwa": "miedzynarodowy",
+          "poziom": "zadowalajaca",
+          "funkcjonalnosc": "pelna",
+          "uzasadnienie": "Noble 1903, 1911, 1905 i rektorat Domeyki – prawidłowe, adekwatne; uwaga, że sukces objął zarówno naukę, jak i literaturę, to skromny, ale rzeczywisty namysł."
+        },
+        {
+          "nazwa": "spoleczno-gospodarczy",
+          "poziom": "powierzchowna",
+          "funkcjonalnosc": "czesciowa",
+          "uzasadnienie": "Większość przykładów (Sorbona, Chile) nie odnosi się do polskiego społeczeństwa i gospodarki; brak faktów o przemianach społecznych na ziemiach polskich (inteligencja, praca organiczna, industrializacja). Zastrzeżenie o konieczności tajnego nauczania jest trafne, lecz nierozwinięte."
+        }
+      ],
+      "A_przed_odjeciem": 8,
+      "bledy_merytoryczne": [],
+      "odjecie": 0,
+      "A": 8,
+      "B": 3,
+      "suma": 11,
+      "najwazniejsza_slabosc": "Aspekt społeczno-gospodarczy zbudowany z osiągnięć zagranicznych (Sorbona, Chile), które nie mówią nic o polskim społeczeństwie ani gospodarce."
+    },
+    {
+      "id": "E4",
+      "aspekty": [
+        {
+          "nazwa": "militarny",
+          "poziom": "zadowalajaca",
+          "funkcjonalnosc": "pelna",
+          "uzasadnienie": "Agresja 17 IX 1939 na mocy porozumienia z III Rzeszą, mordy na obrońcach Grodna, obozy w Kozielsku, Starobielsku i Ostaszkowie, Katyń – fakty prawidłowe i szczegółowe, każdy odniesiony do stanowiska ('zbyt kategoryczna'). Brakuje kluczowego ogniwa: oficerowie (w tym rezerwy) stanowili inteligencję w mundurach, co właśnie czyni Katyń mordem na elicie – bez tego analiza nie jest jeszcze 'wnikliwa'."
+        },
+        {
+          "nazwa": "polityczny",
+          "poziom": "zadowalajaca",
+          "funkcjonalnosc": "pelna",
+          "uzasadnienie": "Propagandowe uzasadnienie agresji, decyzja Biura Politycznego z 5 III 1940 na wniosek Berii, kłamstwo katyńskie, deportacje jako narzędzie kontroli – poprawne i funkcjonalne wobec tezy. Pominięto jednak sowietyzację (wybory X 1939, wcielenie ziem do ZSRS, nadanie obywatelstwa), która najlepiej dowodziłaby, że celem było przejęcie władzy, a nie tylko eksterminacja elit."
+        },
+        {
+          "nazwa": "spoleczny",
+          "poziom": "bogata",
+          "funkcjonalnosc": "pelna",
+          "uzasadnienie": "Deportacja 10 II 1940 (osadnicy wojskowi, leśnicy, rodziny), śmiertelność z głodu, mrozu i pracy, wielonarodowość ofiar, mord więźniów we Lwowie – szczegółowa faktografia, z której konsekwentnie wyprowadzany jest wniosek o szerszym niż elity zasięgu represji. Paragraf faktycznie rozstrzyga problem 'przede wszystkim' – jest analizą, nie katalogiem."
+        }
+      ],
+      "A_przed_odjeciem": 10,
+      "bledy_merytoryczne": [],
+      "odjecie": 0,
+      "A": 10,
+      "B": 3,
+      "suma": 13,
+      "najwazniejsza_slabosc": "Brak jawnego wskazania, kim byli jeńcy z Katynia (inteligencja w mundurach) i pominięcie sowietyzacji – oba argumenty wzmocniłyby zniuansowane stanowisko, którego praca broni."
+    },
+    {
+      "id": "E5",
+      "aspekty": [
+        {
+          "nazwa": "religijny",
+          "poziom": "powierzchowna",
+          "funkcjonalnosc": "czesciowa",
+          "uzasadnienie": "Całkowicie pominięto istotę przemian religijnych renesansu: reformację (Luter 1517, Kalwin, anglikanizm), reformację w Polsce, tolerancję (konfederacja warszawska 1573), reformę katolicką. Zamiast tego jako 'przemiany religijne' podano psałterz Gomółki i kompozycję Ostatniej Wieczerzy, czyli zjawiska kulturowe o tematyce religijnej. Jedynie Erazm (Novum Instrumentum 1516, krytyka duchowieństwa) trafia w problem."
+        },
+        {
+          "nazwa": "spoleczny",
+          "poziom": "zadowalajaca",
+          "funkcjonalnosc": "pelna",
+          "uzasadnienie": "Nowe wzorce osobowe (Castiglione 1528, Górnicki) i krytyka społeczna (Utopia More'a, Rej) – prawidłowe fakty i uzasadniony wniosek o ocenie relacji społecznych. Ujęcie jest jednak literackie, nie pokazuje realnych zmian struktury społecznej (mieszczaństwo, mecenat, edukacja humanistyczna)."
+        },
+        {
+          "nazwa": "kulturowy",
+          "poziom": "zadowalajaca",
+          "funkcjonalnosc": "pelna",
+          "uzasadnienie": "Vesalius 1543, Dawid Michała Anioła, ratusz poznański Quadro (loggia, attyka), sfumato w Mona Lisie – fakty poprawne, terminologia adekwatna, każdy przykład opatrzony wnioskiem. Refleksja ograniczona do jednozdaniowych komentarzy."
+        }
+      ],
+      "A_przed_odjeciem": 8,
+      "bledy_merytoryczne": [],
+      "odjecie": 0,
+      "A": 8,
+      "B": 3,
+      "suma": 11,
+      "najwazniejsza_slabosc": "Aspekt religijny bez słowa o reformacji – 'przemiany religijne' zastąpiono muzyką i malarstwem o tematyce religijnej."
+    },
+    {
+      "id": "E6",
+      "aspekty": [
+        {
+          "nazwa": "kulturowy",
+          "poziom": "zadowalajaca",
+          "funkcjonalnosc": "pelna",
+          "uzasadnienie": "Straty wojenne bibliotek i muzeów zestawione z UŁ i UMK 1945, Ossolineum we Wrocławiu 1946–47 i BOS 1945; każda para strata–działanie jest wprost odniesiona do tezy 'sukces mimo strat'. Faktografia poprawna, refleksja skromna."
+        },
+        {
+          "nazwa": "gospodarczy",
+          "poziom": "zadowalajaca",
+          "funkcjonalnosc": "pelna",
+          "uzasadnienie": "Zniszczenia przemysłu i kolei, Ziemie Odzyskane (porty, okręgi przemysłowe), przekroczenie przedwojennej produkcji przemysłowej 1947–49 – tok przeszkoda–zasoby–wynik jest logiczny i funkcjonalny. Brak nazwy planu trzyletniego, nacjonalizacji 1946 i reformy rolnej; terminologia podstawowa."
+        },
+        {
+          "nazwa": "spoleczny",
+          "poziom": "zadowalajaca",
+          "funkcjonalnosc": "pelna",
+          "uzasadnienie": "Straty demograficzne, repatriacja 1944–46, PUR, wysiedlenia Niemców 1945–48 – prawidłowe i adekwatne; praca uczciwie zaznacza, że był to 'trudny proces', co jest elementem namysłu. Pominięto koszt polityczny odbudowy (przejmowanie władzy przez komunistów), istotny dla oceny 'przede wszystkim sukces'."
+        }
+      ],
+      "A_przed_odjeciem": 9,
+      "bledy_merytoryczne": [],
+      "odjecie": 0,
+      "A": 9,
+      "B": 3,
+      "suma": 12,
+      "najwazniejsza_slabosc": "Człon 'przede wszystkim' nie jest ważony – praca nie rozważa kosztów odbudowy (sowietyzacja, przymus w przesiedleniach), więc zgoda z tezą jest deklarowana, nie wywalczona."
+    }
+  ]
+}

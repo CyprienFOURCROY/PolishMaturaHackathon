@@ -1,0 +1,95 @@
+{
+  "judge": "opus",
+  "essays": [
+    {
+      "id": "E1",
+      "aspekty": [
+        {"nazwa": "kulturowy", "poziom": "zadowalajaca", "funkcjonalnosc": "pelna", "uzasadnienie": "Prawidłowa, konkretna faktografia (UŁ i UMK 1945, Ossolineum do Wrocławia 1946-1947, BOS 1945), adekwatna do tezy o odbudowie. Refleksja ogranicza się jednak do jednozdaniowych komentarzy typu 'dzięki temu', bez analizy, na czym polegał przełom (np. kontrola państwa nad kulturą). BOS to raczej wątek urbanistyczny niż kulturowy."},
+        {"nazwa": "gospodarczy", "poziom": "zadowalajaca", "funkcjonalnosc": "pelna", "uzasadnienie": "Reforma rolna (dekret PKWN 1944), Ziemie Zachodnie i Północne oraz bitwa o handel (Minc, 1947) trafnie ilustrują przełom. Zdanie 'przełom nie polegał tylko na usuwaniu zniszczeń' to realny element refleksji. Brak nacjonalizacji przemysłu (1946), planu trzyletniego i pogłębionej analizy przyczynowo-skutkowej."},
+        {"nazwa": "spoleczny", "poziom": "zadowalajaca", "funkcjonalnosc": "pelna", "uzasadnienie": "Repatriacja, PUR i wysiedlenia Niemców podane poprawnie i z datami. Refleksja minimalna ('tworzenie nowych społeczności'). Brak np. zmian struktury społecznej, awansu społecznego, likwidacji ziemiaństwa i przymusowego charakteru przesiedleń."}
+      ],
+      "A_przed_odjeciem": 9,
+      "bledy_merytoryczne": [],
+      "odjecie": 0,
+      "A": 9,
+      "B": 2,
+      "suma": 11,
+      "najwazniejsza_slabosc": "Schemat 'fakt + ogólnikowy komentarz' bez analizy, na czym polegał przełom; brak kontekstu komunistycznego przejęcia władzy."
+    },
+    {
+      "id": "E2",
+      "aspekty": [
+        {"nazwa": "kulturowy", "poziom": "zadowalajaca", "funkcjonalnosc": "pelna", "uzasadnienie": "Szkoła Główna, Cybulski i Szymonowicz (1895), Confiteor (1899), Wesele (1901): poprawne i szczegółowe fakty. Brak jednak wskazania, na czym polegał przełom w stosunku do wcześniejszego okresu, i brak terminów epokowych (pozytywizm jako program, Młoda Polska)."},
+        {"nazwa": "miedzynarodowy", "poziom": "zadowalajaca", "funkcjonalnosc": "pelna", "uzasadnienie": "Nagrody Nobla Skłodowskiej-Curie (1903, 1911) i Sienkiewicza (1905) oraz Domeyko w Chile: fakty prawidłowe. Komentarze ('świadczyło o znaczeniu') są banalne, a warunki emigracji i braku państwa, z których wynikała konieczność działania za granicą, nie zostały przeanalizowane."},
+        {"nazwa": "spoleczno-gospodarczy", "poziom": "powierzchowna", "funkcjonalnosc": "czesciowa", "uzasadnienie": "Ponownie Curie i Domeyko. Działalność Domeyki w Chile nie odnosi się do polskiej sytuacji społeczno-gospodarczej. Brak pracy organicznej, industrializacji i przemian społecznych pod zaborami. Tylko most Kierbedzia i Uniwersytet Latający wiążą się z tematem."}
+      ],
+      "A_przed_odjeciem": 8,
+      "bledy_merytoryczne": [],
+      "odjecie": 0,
+      "A": 8,
+      "B": 2,
+      "suma": 10,
+      "najwazniejsza_slabosc": "Człon tezy 'mimo ograniczonych możliwości rozwoju' prawie nieomówiony: brak zaborów, rusyfikacji i germanizacji jako tła; przełomu nie wykazano, tylko wyliczono osiągnięcia."
+    },
+    {
+      "id": "E3",
+      "aspekty": [
+        {"nazwa": "kulturowy", "poziom": "zadowalajaca", "funkcjonalnosc": "pelna", "uzasadnienie": "Te same poprawne fakty co w E2 (Szkoła Główna, Cybulski, Confiteor, Wesele). Pojawia się element refleksji: twórcy dostrzegali słabości społeczeństwa. Nadal brak kontekstu zaborów i pogłębionej analizy."},
+        {"nazwa": "miedzynarodowy", "poziom": "zadowalajaca", "funkcjonalnosc": "pelna", "uzasadnienie": "Nagrody Nobla i Domeyko to fakty prawidłowe i adekwatne do tezy o sukcesie. Jest uogólnienie ('sukces dotyczył zarówno nauki, jak i literatury'), ale komentarze są schematyczne."},
+        {"nazwa": "spoleczno-gospodarczy", "poziom": "powierzchowna", "funkcjonalnosc": "czesciowa", "uzasadnienie": "Powtórzenie Curie i Domeyki. Chile i Sorbona nie są polską rzeczywistością społeczno-gospodarczą. Zastrzeżenie o tajnym nauczaniu jest dopisane, a nie rozwinięte. Brak pracy organicznej, przemysłu i stowarzyszeń."}
+      ],
+      "A_przed_odjeciem": 8,
+      "bledy_merytoryczne": [],
+      "odjecie": 0,
+      "A": 8,
+      "B": 2,
+      "suma": 10,
+      "najwazniejsza_slabosc": "Zastrzeżenia ('Warto zauważyć...') są doklejone i nierozwinięte; ten sam zestaw faktów krąży między aspektami, a trudności okresu nie są nazwane."
+    },
+    {
+      "id": "E4",
+      "aspekty": [
+        {"nazwa": "militarny", "poziom": "bogata", "funkcjonalnosc": "pelna", "uzasadnienie": "Precyzyjna faktografia i terminologia: 17 IX 1939 w związku z paktem z III Rzeszą, Grodno, obozy NKWD w Kozielsku, Starobielsku i Ostaszkowie, Katyń. Wywód ma tok rozumowania: fakty potwierdzają tezę, ale zabójstwa w Grodnie pokazują szerszy zakres przemocy, co prowadzi do niuansowanego wniosku."},
+        {"nazwa": "polityczny", "poziom": "zadowalajaca", "funkcjonalnosc": "pelna", "uzasadnienie": "Decyzja Biura Politycznego z 5 III 1940 i wniosek Berii, propagandowe uzasadnienie agresji oraz kłamstwo katyńskie: trafnie i poprawnie. Zapowiedziane 'przejmowanie władzy' nie zostało poparte faktami (brak wyborów do Zgromadzeń Ludowych w październiku 1939, aneksji, narzucenia obywatelstwa, sowietyzacji)."},
+        {"nazwa": "spoleczny", "poziom": "zadowalajaca", "funkcjonalnosc": "pelna", "uzasadnienie": "Deportacja z 10 II 1940 (osadnicy wojskowi, służba leśna, rodziny), warunki zesłania, wieloetniczność ofiar i mordy więzienne we Lwowie: argumentacja rzeczowa i wspiera stanowisko. Brak kolejnych deportacji (1940-1941) i skali liczbowej. Argument o 'jednej grupie narodowej' lekko mija się z tezą, która mówi o elitach."}
+      ],
+      "A_przed_odjeciem": 10,
+      "bledy_merytoryczne": [],
+      "odjecie": 0,
+      "A": 10,
+      "B": 3,
+      "suma": 13,
+      "najwazniejsza_slabosc": "Aspekt polityczny nie dokumentuje sowietyzacji (pseudowybory, aneksja, paszportyzacja), choć wstęp zapowiada 'przejmowanie władzy'."
+    },
+    {
+      "id": "E5",
+      "aspekty": [
+        {"nazwa": "religijny", "poziom": "powierzchowna", "funkcjonalnosc": "czesciowa", "uzasadnienie": "Całkowicie pominięta reformacja (Luter 1517, kalwinizm, sobór trydencki, konfederacja warszawska 1573), która jest istotą 'głębokich przemian religijnych'. Erazm i Gomółka są poprawni, ale kompozycja Ostatniej Wieczerzy to argument artystyczny, a nie religijny. Wywód nie wnika w istotę problemu."},
+        {"nazwa": "spoleczny", "poziom": "zadowalajaca", "funkcjonalnosc": "pelna", "uzasadnienie": "Castiglione (1528), Górnicki, Utopia More'a i Rej: fakty poprawne i związane z nowymi wzorcami społecznymi. Są to jednak wyłącznie teksty literackie, bez realnych przemian (pozycja szlachty, mieszczaństwo, gospodarka folwarczna). Utwór Reja nie jest nazwany."},
+        {"nazwa": "kulturowy", "poziom": "zadowalajaca", "funkcjonalnosc": "pelna", "uzasadnienie": "Wezaliusz (1543), Dawid, ratusz poznański Quadra, sfumato: szczegółowe i poprawne fakty z terminologią (loggia, attyka, sfumato). W całej pracy brakuje jednak pojęć humanizmu i antropocentryzmu, a komentarze są jednozdaniowe. Akapit kończy się bez wniosku."}
+      ],
+      "A_przed_odjeciem": 8,
+      "bledy_merytoryczne": [],
+      "odjecie": 0,
+      "A": 8,
+      "B": 2,
+      "suma": 10,
+      "najwazniejsza_slabosc": "Aspekt religijny bez reformacji, a cała praca bez pojęć humanizmu i antropocentryzmu; teza o 'głębokich' przemianach nie została wykazana."
+    },
+    {
+      "id": "E6",
+      "aspekty": [
+        {"nazwa": "kulturowy", "poziom": "zadowalajaca", "funkcjonalnosc": "pelna", "uzasadnienie": "Straty, a następnie UŁ i UMK, Ossolineum i BOS: poprawne fakty zestawione z wymiarem strat zgodnie z konstrukcją tezy. Komentarze ('świadczy to o skuteczności') są ogólnikowe."},
+        {"nazwa": "gospodarczy", "poziom": "zadowalajaca", "funkcjonalnosc": "pelna", "uzasadnienie": "Przekroczenie przedwojennego poziomu produkcji przemysłowej w latach 1947-1949 to trafny argument, ale bez nazwania planu trzyletniego. Połowa akapitu opisuje tylko przeszkody (koleje). Brak reformy rolnej, nacjonalizacji i kosztów ustrojowych, które pozwoliłyby rozważyć 'przede wszystkim'."},
+        {"nazwa": "spoleczny", "poziom": "zadowalajaca", "funkcjonalnosc": "pelna", "uzasadnienie": "Straty demograficzne, repatriacja, PUR i wysiedlenia Niemców: poprawnie i z datami. Ocena sukcesu jest asertywna ('świadczy o postępach') i asekuracyjna ('część trudności można było ograniczyć'), bez realnego ważenia bilansu."}
+      ],
+      "A_przed_odjeciem": 9,
+      "bledy_merytoryczne": [],
+      "odjecie": 0,
+      "A": 9,
+      "B": 2,
+      "suma": 11,
+      "najwazniejsza_slabosc": "Człon 'przede wszystkim' nie jest rozważony: brak bilansu kosztów (przymus, komunizacja), a sukces jest deklarowany formułkami zamiast wykazany."
+    }
+  ]
+}
