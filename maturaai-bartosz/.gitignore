@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.pytest_cache/
+data/modele/
+data/hf/
+wyniki-final/
+wyniki/
+*.log
+data/cke/
+data/jezyk/
+data/esej/

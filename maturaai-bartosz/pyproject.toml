@@ -1,0 +1,38 @@
+[project]
+name = "maturaai"
+version = "1.0.0"
+description = "MaturaAI: a small open model takes the Polish history matura (Warsaw Model Trainers 2026). Exam harness."
+requires-python = ">=3.12"
+# Only what the final exam needs. The big models run in llama.cpp (llama-server); torch is used only by the MarianMT
+# translator (opus-mt-en-zlw) for the essay, which is fast on CPU, so the CPU build is used on Linux and Windows.
+dependencies = [
+    "bm25s==0.3.11",
+    "huggingface-hub==1.33.0",
+    "numpy",
+    "pillow",
+    "requests",
+    "tqdm",
+    "torch==2.11.0",
+    "transformers==5.17.0",
+    "sentencepiece==0.2.2",
+    "protobuf",
+    "pypdf",   # imported at module load (matura/devset chain), not used by the exam itself
+]
+
+[dependency-groups]
+dev = ["pytest"]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux' or sys_platform == 'win32'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
