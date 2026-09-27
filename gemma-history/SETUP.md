@@ -27,7 +27,13 @@ Check:
 
 The original session used a build referred to as b11200 and reporting short commit 81bc6b8. Resolve and record the actual full commit on the new machine; do not treat the short identifier as a complete reproducibility lock
 
-Example source build for L40S (CUDA architecture 89):
+Automated source build for L40S (CUDA architecture 89):
+
+    bash build_server.sh
+
+The script stops if a runtime/source directory already exists and never replaces it. After a failure, use the retained source/build logs to diagnose or choose a new GEMMA_MODEL_ROOT. Full source SHA and build tool versions are stored in the installed runtime. Clean-machine GPU execution of this automation has not been tested here
+
+Manual equivalent (choose this OR the automated build):
 
     mkdir -p /workspace/gemma-matura/runtime
     git clone --branch b11200 --depth 1 https://github.com/ggml-org/llama.cpp.git /workspace/gemma-matura/runtime/llama-source

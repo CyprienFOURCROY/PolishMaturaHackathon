@@ -32,3 +32,7 @@ Requires checked-in timeline/events.jsonl and historical_context.jsonl. See READ
 ## Checks before freeze
 
 Original user payload content for all 37 practice items equals the 70% baseline. Essay ID changes, word bounds, mocked resume and packaging were checked. Existing 70% results passed packaging with byte-identical submission; empty answers were rejected. No new GPU score claimed for the wrapper.
+
+## New machine
+
+See SETUP.md for prerequisites. From this directory run bash build_server.sh, bash download_weights.sh, then bash serve_final.sh. The build requires nvcc/CMake/compiler already installed. Skip these steps on the existing working GPU session

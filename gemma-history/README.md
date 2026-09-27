@@ -19,6 +19,20 @@ The original scored client is run_exam_gemma_auto.py. The final client run_exam_
 
 Generation: temperature 0, seed 42, top_p 0.95, top_k 64, min_p 0, repeat penalty 1, 768 output tokens for short questions and 3072 for essays. llama.cpp context 16384, one slot, Jinja template, local endpoint on port 8080
 
+## Build and start on a new Linux GPU machine
+
+Requires a working NVIDIA driver, CUDA Toolkit with nvcc, Git, CMake, a C++ compiler and Python 3.10+. The build script does not install system packages. For L40S the default CUDA architecture is 89
+
+    bash build_server.sh
+    bash download_weights.sh
+    bash serve_final.sh
+
+Run the exam client below in a second terminal. All build/model files default to /workspace/gemma-matura. Override GEMMA_MODEL_ROOT for another /workspace installation. GEMMA_CUDA_ARCH and GEMMA_BUILD_JOBS override architecture and build parallelism
+
+build_server.sh builds llama.cpp tag b11200, records the resolved full source commit and compiler versions, and requires a visible CUDA device before installing the runtime. It preserves existing runtime/source directories and stops rather than replacing them. On the existing working server skip the build and download steps; do not start a second server on port 8080
+
+Shell syntax was checked, but this new automation was not executed on a clean CUDA machine before publication. SETUP.md contains prerequisites and manual fallback commands
+
 ## Run from this directory
 
     python3 final_run.py --exam /absolute/path/to/exam.json --out runs/final-exam --check-only
