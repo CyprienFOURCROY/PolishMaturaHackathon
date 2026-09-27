@@ -1,0 +1,557 @@
+{
+  "1": {
+    "answer": "Rozstrzygnięcie: Przedstawiona rekonstrukcja dotyczy epoki neolitu.\n\nUzasadnienie: Zabudowania na ilustracji charakteryzują się skomplikowaną strukturą, wieloma pomieszczeniami, schodami oraz systemem komunikacji wewnętrznej. Sugerują one osiadły tryb życia, który jest charakterystyczny dla neolitu. W paleolicie, okresie zbieractwa i polowania, ludzie żyli w jaskiniach lub tworzyli tymczasowe schronienia, które nie miały tak zaawansowanej i trwałej konstrukcji jak te widoczne na ilustracji. Dodatkowo, obecność potencjalnej przestrzeni ceremonialnej (wewnątrz jednego z budynków) wskazuje na rozwiniętą kulturę i organizację społeczną, co jest typowe dla społeczności neolitycznych.",
+    "seconds": 3.09,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 193,
+      "prompt_tokens": 560,
+      "total_tokens": 753,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "word_count": 80
+  },
+  "2.1": {
+    "answer": "Rozstrzygnięcie: Fragment 2.\n\nUzasadnienie: Fragment 2 zawiera opis starożytnej Sparty, ponieważ wspomina o mieście Lacedemończyków (starożytna nazwa Sparty), ich potędze, posiadaniu dwóch piątych Peloponezu wraz z helotami oraz hegemoni nad całym półwyspem i licznymi sprzymierzeńcami. Te informacje bezpośrednio odnoszą się do charakterystyki i pozycji politycznej Sparty w starożytności.",
+    "seconds": 1.86,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 111,
+      "prompt_tokens": 608,
+      "total_tokens": 719,
+      "prompt_tokens_details": {
+        "cached_tokens": 43
+      }
+    },
+    "word_count": 48
+  },
+  "2.2": {
+    "answer": "A: 3\nB: Brak informacji w podanych fragmentach.",
+    "seconds": 0.4,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 16,
+      "prompt_tokens": 628,
+      "total_tokens": 644,
+      "prompt_tokens_details": {
+        "cached_tokens": 91
+      }
+    },
+    "word_count": 8
+  },
+  "3": {
+    "answer": "1: F\n2: P\n3: F",
+    "seconds": 1.03,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 12,
+      "prompt_tokens": 791,
+      "total_tokens": 803,
+      "prompt_tokens_details": {
+        "cached_tokens": 91
+      }
+    },
+    "word_count": 6
+  },
+  "4.1": {
+    "answer": "Związek handlowy miast, o którym mowa w źródle 1, w historiografii nazywany jest **Hanza**.",
+    "seconds": 1.25,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 31,
+      "prompt_tokens": 738,
+      "total_tokens": 769,
+      "prompt_tokens_details": {
+        "cached_tokens": 91
+      }
+    },
+    "word_count": 14
+  },
+  "4.2": {
+    "answer": "Rozstrzygnięcie: Plan ze źródła 2. przedstawia miasto lokowane na prawie lubeckim.\n\nUzasadnienie: Źródło 1. opisuje prawo lubeckie jako charakteryzujące się regularnym, prostopadłym układem ulic do nabrzeża oraz brakiem placu rynkowego, którego funkcję spełnia szeroka ulica. Plan Elbląga ze źródła 2. wyraźnie pokazuje regularny układ ulic prostopadłych do rzeki Elbląg (nabrzeża) oraz brak wyraźnie wyodrębnionego placu rynkowego, co potwierdza, że miasto zostało lokowane na prawie lubeckim.",
+    "seconds": 2.45,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 150,
+      "prompt_tokens": 771,
+      "total_tokens": 921,
+      "prompt_tokens_details": {
+        "cached_tokens": 91
+      }
+    },
+    "word_count": 65
+  },
+  "5.1": {
+    "answer": "Konflikt zbrojny, podczas którego została stoczona bitwa uwieczniona na ilustracji, to wojna stuletnia. Uzasadnienie: Ilustracja przedstawia bitwę pod Crécy, która miała miejsce w 1346 roku, w trakcie wojny stuletniej pomiędzy Anglią a Francją. Tablica genealogiczna (źródło 2) ukazuje związki dynastyczne pomiędzy oboma państwami, co jest jednym z głównych źródeł konfliktu.",
+    "seconds": 2.76,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 114,
+      "prompt_tokens": 883,
+      "total_tokens": 997,
+      "prompt_tokens_details": {
+        "cached_tokens": 91
+      }
+    },
+    "word_count": 50
+  },
+  "5.2": {
+    "answer": "Edward III zgłosił pretensje do tronu francuskiego w wyniku powiązań rodzinnych. Zgodnie ze źródłem 2, jego ojcem był Edward II Plantagenet, a dziadkiem Filip IV Śmiały, król Francji. Po wygaśnięciu linii męskiej dynastii Kapetyngów w 1328 roku, Edward III, jako wnuk Filipa IV, rościł sobie prawa do tronu francuskiego, argumentując, że jest prawowitym spadkobiercą.",
+    "seconds": 2.55,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 118,
+      "prompt_tokens": 890,
+      "total_tokens": 1008,
+      "prompt_tokens_details": {
+        "cached_tokens": 91
+      }
+    },
+    "word_count": 54
+  },
+  "5.3": {
+    "answer": "Malarz w źródle 1. manifestowanie przez Edwarda III pretensji do korony francuskiej przedstawił poprzez:\n\n1.  **Obecność angielskich chorągwi:** Na ilustracji widoczne są angielskie flagi, co symbolizuje obecność i roszczenia wojsk angielskich na terytorium Francji.\n2.  **Ukazanie bitwy:** Sama scena bitwy pod Crécy, w której angielskie wojska walczą z francuskimi, jest wyrazem roszczenia Edwarda III do tronu Francji.\n3.  **Dominacja angielskich wojsk:**  Malarz ukazuje przewagę angielskich wojsk nad francuskimi, co może być interpretowane jako demonstracja siły i przekonanie o słuszności swoich roszczeń.",
+    "seconds": 3.09,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 180,
+      "prompt_tokens": 893,
+      "total_tokens": 1073,
+      "prompt_tokens_details": {
+        "cached_tokens": 373
+      }
+    },
+    "word_count": 81
+  },
+  "6": {
+    "answer": "**Podobieństwo:**\n\nOba źródła podkreślają, że Władysław Łokietek był postacią, która w trudnych czasach politycznych potrafiła odnieść sukces i zdobyć koronę. Bobrzyński wskazuje na jego \"przezorność\" i zdolność do utrzymania państwa, a Zieliński na to, że \"wypłynął z absolutnej nicości\" i zdobył koronę, co było rzadkością.\n\n**Różnica:**\n\nŹródło 1 koncentruje się na pozytywnych cechach Łokietka, takich jak siła fizyczna, energia woli i umiejętność przezornego rządzenia, podkreślając jego transformację w \"wielkiego bohatera i przezornego króla\". Natomiast źródło 2 przedstawia bardziej krytyczny obraz, wskazując na jego słabości jako gospodarza kraju, podejmowanie decyzji pod wpływem emocji oraz brak umiejętności analizowania skutków, a także podkreślając, że nigdy nie wyrósł ze swojego księstwa.",
+    "seconds": 3.82,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 236,
+      "prompt_tokens": 769,
+      "total_tokens": 1005,
+      "prompt_tokens_details": {
+        "cached_tokens": 91
+      }
+    },
+    "word_count": 107
+  },
+  "7": {
+    "answer": "Nazwa stylu 1.: Gotyk\nCecha: Ostre łuki okien i portali.\n\nNazwa stylu 2.: Renesans\nCecha: Regularność i symetria fasady.",
+    "seconds": 1.5,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 46,
+      "prompt_tokens": 527,
+      "total_tokens": 573,
+      "prompt_tokens_details": {
+        "cached_tokens": 91
+      }
+    },
+    "word_count": 19
+  },
+  "8": {
+    "answer": "Rycina ta powstała w kręgu zwolenników reformacji, co potwierdzają następujące argumenty:\n\n1.  **Scena kary jako krytyka Kościoła:** Przedstawiona na rycinie scena publicznej wagi, która ma rozstrzygnąć, czy duchowny jest \"cięższy\" od heretyka, jest satyrycznym atakiem na instytucję Kościoła katolickiego i jego procedury sądowe. Reformatorzy często krytykowali nadużycia władzy kościelnej i niesprawiedliwe procesy.\n2.  **Wygląd duchownych:** Duchowni przedstawieni na rycinie są ukazani w sposób karykaturalny, co sugeruje negatywne nastawienie do ich roli i autorytetu. Reformatorzy dążyli do odejścia od tradycyjnego wyglądu i hierarchii duchowieństwa, co mogło być inspiracją dla takiego przedstawienia.",
+    "seconds": 3.44,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 214,
+      "prompt_tokens": 485,
+      "total_tokens": 699,
+      "prompt_tokens_details": {
+        "cached_tokens": 90
+      }
+    },
+    "word_count": 90
+  },
+  "9.1": {
+    "answer": "Władysław IV. Zerwanie unii personalnej, o którym mowa w źródle 1, miało miejsce za panowania Władysława IV, co wynika z kontekstu źródła, które wskazuje na spory dynastyczne jako jeden z czynników zaostrzających konflikty polsko-szwedzkie.",
+    "seconds": 1.6,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 70,
+      "prompt_tokens": 693,
+      "total_tokens": 763,
+      "prompt_tokens_details": {
+        "cached_tokens": 89
+      }
+    },
+    "word_count": 34
+  },
+  "9.2": {
+    "answer": "Wojny polsko-szwedzkie, poza sporami dynastycznymi, miały również istotny wymiar ekonomiczny. Szwecja dążyła do kontrolowania handlu bałtyckiego, a Polska, jako potęga regionalna, stanowiła przeszkodę dla tych ambicji. Szwecja chciała zdominować szlaki handlowe i uzyskać dostęp do bogactw Rzeczypospolitej, co prowadziło do konfliktów zbrojnych.",
+    "seconds": 1.86,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 109,
+      "prompt_tokens": 689,
+      "total_tokens": 798,
+      "prompt_tokens_details": {
+        "cached_tokens": 89
+      }
+    },
+    "word_count": 42
+  },
+  "9.3": {
+    "answer": "**Różnice w okolicznościach zwolnienia tronu polskiego przez ostatniego Jagiellona i ostatniego Wazów:**\n\n1.  **Ostatni Jagiellon (Zygmunt II August):** Zwolnienie tronu nastąpiło w wyniku braku męskiego potomka. Zygmunt II August nie miał synów, a dynastia Jagiellonów wygasła wraz z jego śmiercią w 1572 roku. Powodem był brak następcy, co doprowadziło do wyboru nowego króla w drodze elekcji.\n\n2.  **Ostatni Waz (Jan II Kazimierz):** Zwolnienie tronu nastąpiło w wyniku abdykacji. Jan II Kazimierz zrezygnował z władzy w 1668 roku, w obliczu kryzysu państwa, spowodowanego wojną z Turcją i wewnętrznymi problemami gospodarczymi i społecznymi. Decyzja ta była podyktowana przekonaniem o braku możliwości dalszego prowadzenia państwa w tak trudnych warunkach.\n\n**Uzasadnienie:**\n\nŹródło 1 podkreśla, że spory dynastyczne, takie jak brak męskiego potomka Jagiellonów, dodawały zaciętości konfliktom, ale nie były jedyną przyczyną. W przypadku Wazów, abdykacja Jana II Kazimierza była reakcją na kryzys państwa, co odróżnia ten przypadek od wygaśnięcia dynastii Jagiellonów z powodu braku następcy. Tablica genealogiczna (Źródło 2) wizualizuje linie sukcesji, co pozwala zrozumieć, że brak męskiego potomka zakończył panowanie Jagiellonów, podczas gdy abdykacja zakończyła panowanie Wazów.",
+    "seconds": 5.65,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 403,
+      "prompt_tokens": 719,
+      "total_tokens": 1122,
+      "prompt_tokens_details": {
+        "cached_tokens": 89
+      }
+    },
+    "word_count": 174
+  },
+  "10": {
+    "answer": "1: F\n2: P\n3: F",
+    "seconds": 0.84,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 13,
+      "prompt_tokens": 963,
+      "total_tokens": 976,
+      "prompt_tokens_details": {
+        "cached_tokens": 89
+      }
+    },
+    "word_count": 6
+  },
+  "11.1": {
+    "answer": "Wypaczenie zasady *liberum veto* w praktyce polskiego parlamentaryzmu, począwszy od połowy XVII wieku, polegało na przekształceniu jej z mechanizmu ostatecznego ratowania państwa przed wadliwymi ustawami w prymitywną broń w walce politycznej. Zamiast służyć jako \"wentyl bezpieczeństwa\" w duchu \"złotej wolności\" epoki odrodzenia, zaczęto go wykorzystywać w sposób niekonstruktywny, rażąc nie tylko wrogów Rzeczypospolitej, ale i samych szlachciców.  Oznaczało to, że *liberum veto* stało się narzędziem paraliżu sejmu i uniemożliwiało efektywne funkcjonowanie państwa.",
+    "seconds": 2.87,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 174,
+      "prompt_tokens": 452,
+      "total_tokens": 626,
+      "prompt_tokens_details": {
+        "cached_tokens": 89
+      }
+    },
+    "word_count": 72
+  },
+  "11.2": {
+    "answer": "C",
+    "seconds": 0.18,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 3,
+      "prompt_tokens": 482,
+      "total_tokens": 485,
+      "prompt_tokens_details": {
+        "cached_tokens": 88
+      }
+    },
+    "word_count": 1
+  },
+  "12": {
+    "answer": "Rozstrzygnięcie:\nTak, w tekście przedstawiono monteskiuszowską zasadę trójpodziału władzy.\n\nUzasadnienie:\nDokument wyraźnie wskazuje na istnienie trzech stanów (królewskiego, senatorskiego i rycerskiego), którym przypisuje równą moc prawodawczą. Podkreśla, że żaden stan nie może przejąć władzy bez udziału pozostałych dwóch. Jest to bezpośrednie odniesienie do koncepcji Monteskiusza, który postulował podział władzy na ustawodawczą, wykonawczą i sądowniczą (w tekście reprezentowaną przez trzy stany) oraz wzajemną kontrolę i równowagę między nimi, aby zapobiec tyranii.",
+    "seconds": 2.45,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 166,
+      "prompt_tokens": 350,
+      "total_tokens": 516,
+      "prompt_tokens_details": {
+        "cached_tokens": 87
+      }
+    },
+    "word_count": 70
+  },
+  "13.1": {
+    "answer": "Rozstrzygnięcie:\nPlan A przedstawia przebieg bitwy opisanej w źródle 2.\n\nUzasadnienie:\nBitwą opisaną w źródle 2 jest bitwa pod Grochowem, stoczona 19 lutego 1831 roku. Plan A przedstawia rozmieszczenie sił w okolicach miejscowości Siedlce, co koresponduje z lokalizacją bitwy pod Grochowem. W źródle 2 wspomniana jest szarża artylerii konnej, która \"zaimponowała Rosjanom i wstrzymała dalsze ataki\". Na planie A widoczne jest uderzenie polskiej jazdy (oznaczonej czerwonym kolorem) w kierunku pozycji rosyjskich, co może symbolizować tę szarżę. Ponadto, źródło 2 wspomina o wycofaniu się polskich sił na prawy brzeg rzeki, co jest widoczne na planie A, gdzie polskie oddziały znajdują się po stronie rzeki Muchawki. Plan B natomiast przedstawia zupełnie inną konfigurację sił i teren, co nie odpowiada opisowi bitwy pod Grochowem.",
+    "seconds": 4.43,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 256,
+      "prompt_tokens": 1144,
+      "total_tokens": 1400,
+      "prompt_tokens_details": {
+        "cached_tokens": 86
+      }
+    },
+    "word_count": 121
+  },
+  "13.2": {
+    "answer": "C",
+    "seconds": 1.01,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 2,
+      "prompt_tokens": 1169,
+      "total_tokens": 1171,
+      "prompt_tokens_details": {
+        "cached_tokens": 86
+      }
+    },
+    "word_count": 1
+  },
+  "14.1": {
+    "answer": "Ignacy Łukasiewicz.",
+    "seconds": 1.14,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 7,
+      "prompt_tokens": 472,
+      "total_tokens": 479,
+      "prompt_tokens_details": {
+        "cached_tokens": 86
+      }
+    },
+    "word_count": 2
+  },
+  "14.2": {
+    "answer": "Galicja. Przemysł naftowy narodził się na terenie Galicji, w okolicach Borysławia i Drohobszczy, w ramach zaboru austriackiego.",
+    "seconds": 0.98,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 43,
+      "prompt_tokens": 480,
+      "total_tokens": 523,
+      "prompt_tokens_details": {
+        "cached_tokens": 85
+      }
+    },
+    "word_count": 17
+  },
+  "15": {
+    "answer": "Nazwa stylu: Impresjonizm.\nUzasadnienie: Obraz charakteryzuje się malowaniem światłem i atmosferą, co widać w przedstawieniu rozproszonego światła słonecznego i subtelnych odcieniach nieba oraz zieleni trawy.",
+    "seconds": 1.54,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 63,
+      "prompt_tokens": 512,
+      "total_tokens": 575,
+      "prompt_tokens_details": {
+        "cached_tokens": 84
+      }
+    },
+    "word_count": 25
+  },
+  "16.1": {
+    "answer": "Rozstrzygnięcie: Przesłanie pieśni ze źródła 1. jest częściowo zgodne z treścią manifestu Partii Komunistycznej ze źródła 2.\n\nUzasadnienie: Oba źródła wyrażają niezadowolenie z istniejącego porządku społecznego i dążenie do zmian. Pieśń ze źródła 1. wzywa do obalenia \"starego, podłego świata\" i stworzenia \"nowego życia\", co można interpretować jako dążenie do rewolucji. Manifest Partii Komunistycznej ze źródła 2. również postuluje obalenie istniejącego porządku, wskazując na walkę klasową między burżuazją a proletariatem i przewidując rewolucję komunistyczną.  Zgodność tkwi w krytyce dotychczasowego ustroju i aspiracji do jego zmiany. Różnica polega na tym, że pieśń jest bardziej ogólna i emocjonalna, a manifest Partii Komunistycznej przedstawia konkretną ideologię (komunizm) i analizuje przyczyny walki klasowej. Pieśń nie precyzuje modelu nowego ładu, podczas gdy manifest wskazuje na cel – społeczeństwo bez klas.",
+    "seconds": 4.0,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 275,
+      "prompt_tokens": 643,
+      "total_tokens": 918,
+      "prompt_tokens_details": {
+        "cached_tokens": 83
+      }
+    },
+    "word_count": 125
+  },
+  "16.2": {
+    "answer": "Karl Marx. Jest on jednym z autorów Manifestu Partii Komunistycznej, cytowanego w źródle 2.",
+    "seconds": 0.52,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 26,
+      "prompt_tokens": 594,
+      "total_tokens": 620,
+      "prompt_tokens_details": {
+        "cached_tokens": 126
+      }
+    },
+    "word_count": 14
+  },
+  "17": {
+    "answer": "Rozstrzygnięcie: Opinia na temat polityki Brytyjczyków w Indiach wyrażona w źródle 1. znajduje potwierdzenie na ilustracji ze źródła 2.\n\nUzasadnienie: Źródło 1 krytykuje brytyjską politykę podatkową w Indiach, szczególnie podatek od soli, który jest opisywany jako \"okrutny\" dla biedoty i pobierany przez poborców w najuboższych domach. Ilustracja ze źródła 2 przedstawia scenę poboru podatku od soli, gdzie brytyjski urzędnik stoi nad grupą nagich lub słabo odzianych Hindusów, co sugeruje wyzysk i poniżanie. Obraz ten wizualnie potwierdza opisane w źródle 1 trudności i niesprawiedliwość, jakie doświadczała ludność indyjska pod brytyjskim panowaniem.",
+    "seconds": 3.45,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 202,
+      "prompt_tokens": 816,
+      "total_tokens": 1018,
+      "prompt_tokens_details": {
+        "cached_tokens": 83
+      }
+    },
+    "word_count": 90
+  },
+  "18": {
+    "answer": "Rysunek \"Duch roku '76\" z 1917 roku, przedstawiający Francję przyjmującą miliard dolarów od Stanów Zjednoczonych, jest satyrą na politykę finansową i relacje między oboma krajami w czasie I wojny światowej.\n\n**Elementy graficzne:**\n\n1.  **Postać z napisem \"La Fayette\":** Odnosi się do Markiza de Lafayette, francuskiego arystokraty, który walczył po stronie Amerykanów podczas wojny o niepodległość Stanów Zjednoczonych. Jego obecność symbolizuje historyczne powiązania i wdzięczność Amerykanów wobec Francji.\n2.  **Przekazywany banknot o wartości miliarda dolarów:**  Reprezentuje ogromną kwotę pożyczki udzielonej przez Stany Zjednoczone Francji.  W kontekście 1917 roku, gdy USA dopiero weszły do wojny, symbolizuje amerykańskie wsparcie finansowe dla Ententy.\n\n**Tytuł:** \"Duch roku '76\" nawiązuje do amerykańskiej wojny o niepodległość (1776), podkreślając historyczne wsparcie Francji dla Stanów Zjednoczonych.  Rysunek sugeruje, że teraz, w czasie I wojny światowej, Stany Zjednoczone odwracają rolę, udzielając pomocy Francji.\n\n**Kontekst historyczny:** W 1917 roku Stany Zjednoczone, po początkowej neutralności, przystąpiły do I wojny światowej po ataku niemieckich okrętów podwodnych na amerykańskie statki.  Francja, wyczerpana długotrwałym konfliktem, potrzebowała wsparcia finansowego.  Rysunek, choć satyryczny, odzwierciedla fakt udzielania przez USA pożyczek i kredytów dla państw Ententy, w tym Francji, w celu wzmocnienia ich pozycji w wojnie.",
+    "seconds": 6.47,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 439,
+      "prompt_tokens": 508,
+      "total_tokens": 947,
+      "prompt_tokens_details": {
+        "cached_tokens": 83
+      }
+    },
+    "word_count": 187
+  },
+  "19": {
+    "answer": "1: F\n2: P\n3: F",
+    "seconds": 1.25,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 12,
+      "prompt_tokens": 901,
+      "total_tokens": 913,
+      "prompt_tokens_details": {
+        "cached_tokens": 82
+      }
+    },
+    "word_count": 6
+  },
+  "20": {
+    "answer": "Rozstrzygnięcie: Tak, oba źródła nawiązują do łamania postanowień traktatu wersalskiego przez Niemcy.\n\nUzasadnienie: Źródło 1 informuje o przejęciu przez Niemcy terytorium Saary w 1935 roku w wyniku plebiscytu, co było sprzeczne z postanowieniami traktatu wersalskiego, który zakazywał Niemcom łączenia się z innymi terytoriami. Źródło 2, w postaci nagłówka gazety, wyraźnie wskazuje na obecność wojsk niemieckich w Nadrenii, co również stanowiło naruszenie traktatu wersalskiego, który zakazywał Niemcom stacjonowania wojsk w tym regionie. Oba źródła, choć w różny sposób, dokumentują działania Niemiec, które podważały postanowienia traktatu wersalskiego.",
+    "seconds": 3.54,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 197,
+      "prompt_tokens": 851,
+      "total_tokens": 1048,
+      "prompt_tokens_details": {
+        "cached_tokens": 82
+      }
+    },
+    "word_count": 85
+  },
+  "21": {
+    "answer": "1: B\n2: C",
+    "seconds": 1.01,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 8,
+      "prompt_tokens": 823,
+      "total_tokens": 831,
+      "prompt_tokens_details": {
+        "cached_tokens": 82
+      }
+    },
+    "word_count": 4
+  },
+  "22": {
+    "answer": "Rozstrzygnięcie: Traktaty A i B odnoszą się do procesów integracyjnych po przeciwnych stronach żelaznej kurtyny.\n\nUzasadnienie: Traktat A, zawierający zapis o wzajemnej pomocy w przypadku zbrojnej napaści w Europie i Ameryce Północnej, odnosi się do NATO (Pakt Północnoatlantycki). Artykuł 51 Karty Narodów Zjednoczonych, na który powołuje się traktat, dotyczy prawa do samoobrony, a wspomniane działania, w tym użycie siły zbrojnej, wskazują na charakter obronny i militarny sojuszu. NATO powstało w 1949 roku jako odpowiedź na ekspansję komunizmu i Związku Radzieckiego, więc funkcjonowało po stronie Zachodu, za żelazną kurtyną. Z kolei traktat B, wyrażający obawy o powstanie „Unii Zachodnioeuropejskiej” z remilitaryzowanymi Niemcami Zachodnimi i włączeniem ich do bloku północnoatlantyckiego, oraz postulujący zawarcie Układu o przyjaźni, współpracy i pomocy wzajemnej, odnosi się do Układu Warszawskiego. Powstanie Układu Warszawskiego było reakcją na NATO i miało na celu stworzenie zintegrowanej struktury wojskowej państw bloku wschodniego, więc funkcjonowało po stronie bloku wschodniego, po drugiej stronie żelaznej kurtyny. Obawy wyrażone w traktacie B wskazują na napięcia i rywalizację między oboma blokami.",
+    "seconds": 5.26,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 368,
+      "prompt_tokens": 621,
+      "total_tokens": 989,
+      "prompt_tokens_details": {
+        "cached_tokens": 82
+      }
+    },
+    "word_count": 165
+  },
+  "23": {
+    "answer": "W PRL nie można było pisać o okolicznościach śmierci przyjaciół Czesława Miłosza, ponieważ reżim komunistyczny, będąc satelitem ZSRR, prowadził politykę cenzury i ukrywał prawdę o zbrodniach dokonanych przez Stalina i jego współpracowników wobec oficerów polskich. Milosz odnosi się do losu oficerów rozbrojonych i internowanych przez Sowietów, a następnie zamordowanych – co było częścią operacji \"Wisła\" i ukrywanej przez władze PRL. Publiczne ujawnienie tej prawdy podważało legitymizację władzy komunistycznej i mogło prowadzić do niezadowolenia społecznego, dlatego cenzura blokowała takie informacje.",
+    "seconds": 2.58,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 166,
+      "prompt_tokens": 355,
+      "total_tokens": 521,
+      "prompt_tokens_details": {
+        "cached_tokens": 104
+      }
+    },
+    "word_count": 79
+  },
+  "24": {
+    "answer": "Rozstrzygnięcie: Tak, zaprezentowane źródła 1 i 2 powstały w ramach tej samej kampanii propagandowej z okresu PRL.\n\nUzasadnienie:\n\n1.  **Tematyka:** Oba źródła odzwierciedlają charakterystyczne dla propagandy PRL motywy. Źródło 1 wyraża poparcie dla Władysława Gomułki i jego polityki, jednocześnie demonizując \"syjonistów\" i \"przewrót\", co było typowe dla antysemickich i antyzachodnich tendencji w propagandzie. Źródło 2, poprzez karykaturalne przedstawienie Hitlera i symboliki nazistowskiej, a następnie \"przebaczenie\" jej, miało służyć oczernianiu wrogów PRL i legitymizacji władzy.\n2.  **Styl i język:** Źródło 1 używa retoryki masowych wieców i powszechnego poparcia, co miało budować wrażenie jedności i siły systemu. Źródło 2, mimo że jest rysunkiem, również używa uproszczeń i emocjonalnego języka, aby przekazać propagandowy przekaz.\n3.  **Kontekst historyczny:** Oba źródła powstały w okresie tzw. \"odwilży\" gomułkowskiej (1956-1960) i późniejszych represji. Propaganda w tym okresie miała na celu umocnienie władzy i tłumienie wszelkich przejawów niezadowolenia społecznego.  Rysunek Karola Baranleckiego, ukazujący \"dobrego pasterza\" \"przebaczającego\" hitlerowców, był elementem próby zacierania granic między wrogami i budowania poczucia wspólnoty wewnątrz systemu.\n4.  **Wspólny cel:** Oba źródła miały na celu manipulowanie opinią publiczną, wzmacnianie lojalności wobec władzy i demonizowanie przeciwników politycznych.",
+    "seconds": 6.92,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 447,
+      "prompt_tokens": 936,
+      "total_tokens": 1383,
+      "prompt_tokens_details": {
+        "cached_tokens": 82
+      }
+    },
+    "word_count": 181
+  },
+  "25.1": {
+    "answer": "Nazwisko: Leonid Breżniew.\n\nWyjaśnienie: Polityk A, Leonid Breżniew, wspomniał o \"ciężkiej chorobie, która dotknęła kraj\". W kontekście historycznym, odnosi się to do kryzysu gospodarczego i społecznego w Polsce w 1981 roku, który objawiał się m.in. problemami z zaopatrzeniem, wysoką inflacją i niezadowoleniem społecznym, a także strajku w Stoczni Gdańskiej. Breżniew, jako przywódca ZSRR, odnosił się do tych problemów, sugerując, że jego wsparcie dla nowego przywódcy PZPR ma na celu ich rozwiązanie.",
+    "seconds": 2.67,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 157,
+      "prompt_tokens": 666,
+      "total_tokens": 823,
+      "prompt_tokens_details": {
+        "cached_tokens": 82
+      }
+    },
+    "word_count": 71
+  },
+  "25.2": {
+    "answer": "Nazwisko: Wojciech Jaruzelski\n\nWyjaśnienie: Wojciech Jaruzelski, obejmując stanowisko I sekretarza KC PZPR w październiku 1981 roku, w obliczu kryzysu gospodarczego i napięć społecznych, podjął decyzję o wprowadzeniu stanu wojennego 13 grudnia 1981 roku. Stan wojenny, choć spotkał się z potępieniem i represjami wobec opozycji, miał na celu, według władz, przywrócenie porządku publicznego i zapobieżenie destabilizacji państwa. W późniejszych latach, Jaruzelski doprowadził do podjęcia rozmów z opozycją, co zaowocowało Okrągłym Stołem i następnie częściowo wolnymi wyborami w 1989 roku. Te wydarzenia, choć kontrowersyjne, doprowadziły do transformacji ustrojowej i upadku komunizmu w Polsce, co można uznać za przełom w sytuacji w kraju.",
+    "seconds": 3.09,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 225,
+      "prompt_tokens": 663,
+      "total_tokens": 888,
+      "prompt_tokens_details": {
+        "cached_tokens": 149
+      }
+    },
+    "word_count": 100
+  },
+  "26": {
+    "answer": "1.\n\nTeza o dominacji tendencji decentralizacyjnych w życiu politycznym państwa polskiego w okresie XI-XII wieku jest w dużym stopniu prawdziwa, choć wymaga niuansów. Okres panowania Bolesława Chrobrego, Mieszka II Lamberta, Kazimierza Odnowiciela i Bolesława III Krzywoustego, choć charakteryzował się próbami centralizacji władzy, jednocześnie ujawniał silne tendencje rozdrobnienia, wynikające z uwarunkowań społecznych, gospodarczych i zewnętrznych.\n\nPanowanie Bolesława Chrobrego (992-1025) początkowo charakteryzowało się silną centralizacją, czego dowodem była ekspansja terytorialna – zajęcie Czech i Moraw (1003), zdobycie Grodów Czerwieńskich i osadzenie tam zięcia, Świętopełka (1018). Jednakże, po śmierci Chrobrego w 1025 roku, państwo szybko zaczęło się rozpadć. Bunt Bezpryma, syna Chrobrego (1031), oraz późniejszy powrót Mieszka II Lamberta do kraju, nie zdołały przywrócić stabilności i jedności. Wojny z Henrykiem II, choć zakończone pokojem w Budziszynie (1018), osłabiły państwo i przyczyniły się do jego fragmentacji.\n\nRządy Kazimierza Odnowiciela (1034-1058) to okres odbudowy państwa po kryzysie, ale także kontynuacji tendencji decentralizacyjnych. Zdobycie Śląska w 1050 roku było ważnym sukcesem, jednakże utrata Śląska na rzecz Czech w 1039 roku, oraz przeniesienie stolicy do Krakowa, świadczyły o osłabieniu władzy centralnej i konieczności skupienia się na zabezpieczeniu wewnętrznych granic.\n\nNajbardziej wyraźnym przejawem decentralizacji było panowanie Bolesława III Krzywoustego (1102-1138). Testament Krzywoustego z 1138 roku, dzielący Polskę na dzielnice, stanowił formalne potwierdzenie rozbicia dzielnicowego, które faktycznie już wcześniej zachodziło.  Choć Krzywousty próbował utrzymać zwierzchnictwo nad braćmi poprzez urząd seniorkatu, to jego działania okazały się niewystarczające, a zjazd w Merseburgu (1135), gdzie Krzywousty złożył hołd cesarzowi Lotarowi III, podkreślał zależność od władzy zewnętrznej i osłabiał pozycję centralną.  Wyprawa Fryderyka Barbarossy w 1157 roku i złożenie hołdu lennego przez Bolesława Kędzierzawego, dodatkowo potwierdzały ten proces.\n\nPodsumowując, choć władcy Piastowie podejmowali próby centralizacji, to silne uwarunkowania społeczne (potęga możnych), gospodarcze (rozdrobnienie gospodarcze) i zewnętrzne (agresja sąsiadów) prowadziły do rozdrobnienia państwa.  Dlatego teza o dominacji tendencji decentralizacyjnych w XI-XII wieku jest zasadna, choć należy pamiętać o aktywnych działaniach władców, które, choć często nieskuteczne, miały na celu utrzymanie jedności państwa. Rozbicie dzielnicowe, będące kulminacją tych tendencji, stanowiło trwałe zjawisko, które wpłynęło na dalszy rozwój Polski.",
+    "seconds": 12.33,
+    "finish_reason": "stop",
+    "truncated": false,
+    "usage": {
+      "completion_tokens": 823,
+      "prompt_tokens": 3661,
+      "total_tokens": 4484,
+      "prompt_tokens_details": {
+        "cached_tokens": 1
+      }
+    },
+    "word_count": 332
+  }
+}
