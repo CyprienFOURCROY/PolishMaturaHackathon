@@ -1,137 +1,191 @@
 {
-  "opis": "Realne tematy wypracowan z arkuszy CKE (historia, poziom rozszerzony), 2023-2026. Dev set dla harnessu: sprawdza, czy formuła tematu jest rozpoznawana poprawnie, zanim powstanie wypracowanie.",
-  "zrodlo": "Arkusze maturalne CKE, historia poziom rozszerzony, sesja maj 2023, 2024, 2025, 2026.",
-  "zweryfikowano": "2026-09-25",
-  "wazne": "expect_elementy to oczekiwany wynik rozpoznania tematu. Gdy harness zwroci inna liste, test pada. Dla rodzaju 'trzy_wybrane' lista jest pusta, bo elementy wybiera model.",
-  "rodzaje": {
-    "aspekty": "Temat wymienia wprost trzy aspekty. Elementy musza byc nazwane dokladnie tak, jak w temacie.",
-    "trzy_wybrane": "Temat prosi o wydarzenia/postacie/wladcow do wyboru. Elementy wybiera model."
+ "opis": "Realne tematy wypracowan z arkuszy CKE (historia, poziom rozszerzony), 2023-2026. Dev set dla harnessu: sprawdza, czy formuła tematu jest rozpoznawana poprawnie, zanim powstanie wypracowanie.",
+ "zrodlo": "Arkusze maturalne CKE, historia poziom rozszerzony, sesja maj 2023, 2024, 2025, 2026. Dodano: arkusz pokazowy CKE (4.03.2022) i test diagnostyczny (21.12.2022), formuła 2023.",
+ "zweryfikowano": "2026-09-25",
+ "wazne": "expect_elementy to oczekiwany wynik rozpoznania tematu. Gdy harness zwroci inna liste, test pada. Dla rodzaju 'trzy_wybrane' lista jest pusta, bo elementy wybiera model. Każdy z 6 arkuszy formuły 2023 zawiera co najmniej jeden temat typu 'aspekty' (liczby: 2,1,1,3,2,3) — harness zawsze wybiera temat 'aspekty'.",
+ "rodzaje": {
+  "aspekty": "Temat wymienia wprost trzy aspekty. Elementy musza byc nazwane dokladnie tak, jak w temacie.",
+  "trzy_wybrane": "Temat prosi o wydarzenia/postacie/wladcow do wyboru. Elementy wybiera model."
+ },
+ "warianty_formuly": [
+  "2023-2 uzywa 'aspekt' (liczba pojedyncza) i BEZ dwukropka. Pozostale uzywaja 'aspekty:'.",
+  "Kazdy temat ma dokladnie 3 elementy.",
+  "Elementy bywaja zlozone myślnikiem: 'społeczno-gospodarczy' i 'polityczno-ustrojowy' to jeden element, nie dwa."
+ ],
+ "tematy": [
+  {
+   "id": "2023-1",
+   "rok": 2023,
+   "rodzaj": "trzy_wybrane",
+   "tekst": "W życiu politycznym państwa polskiego w okresie XI–XII wieku dominowały tendencje decentralizacyjne. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji panowanie trzech wybranych władców z tego okresu.",
+   "expect_elementy": []
   },
-  "warianty_formuly": [
-    "2023-2 uzywa 'aspekt' (liczba pojedyncza) i BEZ dwukropka. Pozostale uzywaja 'aspekty:'.",
-    "Kazdy temat ma dokladnie 3 elementy.",
-    "Elementy bywaja zlozone myślnikiem: 'społeczno-gospodarczy' i 'polityczno-ustrojowy' to jeden element, nie dwa."
-  ],
-  "tematy": [
-    {
-      "id": "2023-1",
-      "rok": 2023,
-      "rodzaj": "trzy_wybrane",
-      "tekst": "W życiu politycznym państwa polskiego w okresie XI–XII wieku dominowały tendencje decentralizacyjne. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji panowanie trzech wybranych władców z tego okresu.",
-      "expect_elementy": []
-    },
-    {
-      "id": "2023-2",
-      "rok": 2023,
-      "rodzaj": "aspekty",
-      "tekst": "Rewolucja amerykańska i francuska z końca XVIII wieku miały podobne przyczyny. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekt polityczny, społeczno-gospodarczy i kulturowy.",
-      "expect_elementy": [
-        "polityczny",
-        "społeczno-gospodarczy",
-        "kulturowy"
-      ]
-    },
-    {
-      "id": "2023-3",
-      "rok": 2023,
-      "rodzaj": "trzy_wybrane",
-      "tekst": "Zimna wojna osiągnęła apogeum w latach 50. XX wieku. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, charakteryzując trzy wybrane wydarzenia z tego okresu.",
-      "expect_elementy": []
-    },
-    {
-      "id": "2024-1",
-      "rok": 2024,
-      "rodzaj": "aspekty",
-      "tekst": "Najbardziej udaną próbą odnowienia tradycji imperium rzymskiego w średniowieczu było państwo Karola Wielkiego. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekty: polityczny, społeczno-gospodarczy i kulturowy.",
-      "expect_elementy": [
-        "polityczny",
-        "społeczno-gospodarczy",
-        "kulturowy"
-      ]
-    },
-    {
-      "id": "2024-2",
-      "rok": 2024,
-      "rodzaj": "aspekty",
-      "tekst": "To właśnie wojny z Turcją, spośród wszystkich XVII-wiecznych konfliktów zbrojnych Rzeczypospolitej, w największym stopniu przyczyniły się do upadku jej znaczenia w tym stuleciu. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekty: militarny, polityczny i społeczno-gospodarczy.",
-      "expect_elementy": [
-        "militarny",
-        "polityczny",
-        "społeczno-gospodarczy"
-      ]
-    },
-    {
-      "id": "2024-3",
-      "rok": 2024,
-      "rodzaj": "aspekty",
-      "tekst": "Niepodległość Polska zawdzięczała przede wszystkim przywództwu Józefa Piłsudskiego. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekty: dyplomatyczny, militarny i polityczno-ustrojowy.",
-      "expect_elementy": [
-        "dyplomatyczny",
-        "militarny",
-        "polityczno-ustrojowy"
-      ]
-    },
-    {
-      "id": "2025-1",
-      "rok": 2025,
-      "rodzaj": "aspekty",
-      "tekst": "Władysław Jagiełło był najwybitniejszym władcą Polski z dynastii Jagiellonów. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekty: militarny, ustrojowy i społeczno-gospodarczy.",
-      "expect_elementy": [
-        "militarny",
-        "ustrojowy",
-        "społeczno-gospodarczy"
-      ]
-    },
-    {
-      "id": "2025-2",
-      "rok": 2025,
-      "rodzaj": "aspekty",
-      "tekst": "Lata 1871–1914 są niesłusznie określane jako belle époque (piękna epoka). Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekty: polityczny, społeczno-gospodarczy i kulturowy.",
-      "expect_elementy": [
-        "polityczny",
-        "społeczno-gospodarczy",
-        "kulturowy"
-      ]
-    },
-    {
-      "id": "2025-3",
-      "rok": 2025,
-      "rodzaj": "trzy_wybrane",
-      "tekst": "Rok 1956 był przełomem w systemie komunistycznym. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji wydarzenia z trzech wybranych państw bloku komunistycznego.",
-      "expect_elementy": []
-    },
-    {
-      "id": "2026-1",
-      "rok": 2026,
-      "rodzaj": "aspekty",
-      "tekst": "Unia w Krewie okazała się bardziej korzystna dla Litwy niż dla Polski. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekty: polityczny, społeczno-gospodarczy i kulturowy.",
-      "expect_elementy": [
-        "polityczny",
-        "społeczno-gospodarczy",
-        "kulturowy"
-      ]
-    },
-    {
-      "id": "2026-2",
-      "rok": 2026,
-      "rodzaj": "aspekty",
-      "tekst": "Rewolucja przemysłowa przyniosła społeczeństwom europejskim więcej szkody niż pożytku. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekty: społeczny, gospodarczy i kulturowy.",
-      "expect_elementy": [
-        "społeczny",
-        "gospodarczy",
-        "kulturowy"
-      ]
-    },
-    {
-      "id": "2026-3",
-      "rok": 2026,
-      "rodzaj": "aspekty",
-      "tekst": "Klęska Polski w 1939 roku była nieunikniona. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekty: polityczny, militarny i społeczno-gospodarczy.",
-      "expect_elementy": [
-        "polityczny",
-        "militarny",
-        "społeczno-gospodarczy"
-      ]
-    }
-  ]
+  {
+   "id": "2023-2",
+   "rok": 2023,
+   "rodzaj": "aspekty",
+   "tekst": "Rewolucja amerykańska i francuska z końca XVIII wieku miały podobne przyczyny. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekt polityczny, społeczno-gospodarczy i kulturowy.",
+   "expect_elementy": [
+    "polityczny",
+    "społeczno-gospodarczy",
+    "kulturowy"
+   ]
+  },
+  {
+   "id": "2023-3",
+   "rok": 2023,
+   "rodzaj": "trzy_wybrane",
+   "tekst": "Zimna wojna osiągnęła apogeum w latach 50. XX wieku. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, charakteryzując trzy wybrane wydarzenia z tego okresu.",
+   "expect_elementy": []
+  },
+  {
+   "id": "2024-1",
+   "rok": 2024,
+   "rodzaj": "aspekty",
+   "tekst": "Najbardziej udaną próbą odnowienia tradycji imperium rzymskiego w średniowieczu było państwo Karola Wielkiego. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekty: polityczny, społeczno-gospodarczy i kulturowy.",
+   "expect_elementy": [
+    "polityczny",
+    "społeczno-gospodarczy",
+    "kulturowy"
+   ]
+  },
+  {
+   "id": "2024-2",
+   "rok": 2024,
+   "rodzaj": "aspekty",
+   "tekst": "To właśnie wojny z Turcją, spośród wszystkich XVII-wiecznych konfliktów zbrojnych Rzeczypospolitej, w największym stopniu przyczyniły się do upadku jej znaczenia w tym stuleciu. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekty: militarny, polityczny i społeczno-gospodarczy.",
+   "expect_elementy": [
+    "militarny",
+    "polityczny",
+    "społeczno-gospodarczy"
+   ]
+  },
+  {
+   "id": "2024-3",
+   "rok": 2024,
+   "rodzaj": "aspekty",
+   "tekst": "Niepodległość Polska zawdzięczała przede wszystkim przywództwu Józefa Piłsudskiego. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekty: dyplomatyczny, militarny i polityczno-ustrojowy.",
+   "expect_elementy": [
+    "dyplomatyczny",
+    "militarny",
+    "polityczno-ustrojowy"
+   ]
+  },
+  {
+   "id": "2025-1",
+   "rok": 2025,
+   "rodzaj": "aspekty",
+   "tekst": "Władysław Jagiełło był najwybitniejszym władcą Polski z dynastii Jagiellonów. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekty: militarny, ustrojowy i społeczno-gospodarczy.",
+   "expect_elementy": [
+    "militarny",
+    "ustrojowy",
+    "społeczno-gospodarczy"
+   ]
+  },
+  {
+   "id": "2025-2",
+   "rok": 2025,
+   "rodzaj": "aspekty",
+   "tekst": "Lata 1871–1914 są niesłusznie określane jako belle époque (piękna epoka). Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekty: polityczny, społeczno-gospodarczy i kulturowy.",
+   "expect_elementy": [
+    "polityczny",
+    "społeczno-gospodarczy",
+    "kulturowy"
+   ]
+  },
+  {
+   "id": "2025-3",
+   "rok": 2025,
+   "rodzaj": "trzy_wybrane",
+   "tekst": "Rok 1956 był przełomem w systemie komunistycznym. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji wydarzenia z trzech wybranych państw bloku komunistycznego.",
+   "expect_elementy": []
+  },
+  {
+   "id": "2026-1",
+   "rok": 2026,
+   "rodzaj": "aspekty",
+   "tekst": "Unia w Krewie okazała się bardziej korzystna dla Litwy niż dla Polski. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekty: polityczny, społeczno-gospodarczy i kulturowy.",
+   "expect_elementy": [
+    "polityczny",
+    "społeczno-gospodarczy",
+    "kulturowy"
+   ]
+  },
+  {
+   "id": "2026-2",
+   "rok": 2026,
+   "rodzaj": "aspekty",
+   "tekst": "Rewolucja przemysłowa przyniosła społeczeństwom europejskim więcej szkody niż pożytku. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekty: społeczny, gospodarczy i kulturowy.",
+   "expect_elementy": [
+    "społeczny",
+    "gospodarczy",
+    "kulturowy"
+   ]
+  },
+  {
+   "id": "2026-3",
+   "rok": 2026,
+   "rodzaj": "aspekty",
+   "tekst": "Klęska Polski w 1939 roku była nieunikniona. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekty: polityczny, militarny i społeczno-gospodarczy.",
+   "expect_elementy": [
+    "polityczny",
+    "militarny",
+    "społeczno-gospodarczy"
+   ]
+  },
+  {
+   "id": "2022-pokazowy-1",
+   "rok": 2022,
+   "rodzaj": "aspekty",
+   "tekst": "Epoka średniowiecza niesłusznie jest nazywana „wiekami ciemnymi”. Zajmij stanowisko wobec powyższej tezy, uwzględniając w swojej argumentacji aspekt ekonomiczny, społeczny i kulturowy.",
+   "expect_elementy": [
+    "ekonomiczny",
+    "społeczny",
+    "kulturowy"
+   ]
+  },
+  {
+   "id": "2022-pokazowy-2",
+   "rok": 2022,
+   "rodzaj": "aspekty",
+   "tekst": "O upadku Rzeczypospolitej w końcu XVIII wieku zadecydowały w głównej mierze czynniki wewnętrzne. Zajmij stanowisko wobec powyższej tezy, uwzględniając w swojej argumentacji aspekt militarny, ustrojowy i społeczno-gospodarczy.",
+   "expect_elementy": [
+    "militarny",
+    "ustrojowy",
+    "społeczno-gospodarczy"
+   ]
+  },
+  {
+   "id": "2022-pokazowy-3",
+   "rok": 2022,
+   "rodzaj": "trzy_wybrane",
+   "tekst": "Polskie Państwo Podziemne było ewenementem w skali całej okupowanej Europy. Zajmij stanowisko wobec powyższej tezy, charakteryzując postawę wobec okupantów władz i społeczeństwa polskiego oraz dwóch wybranych innych państw okupowanych w okresie II wojny światowej.",
+   "expect_elementy": []
+  },
+  {
+   "id": "2022-probna-1",
+   "rok": 2022,
+   "rodzaj": "trzy_wybrane",
+   "tekst": "Problem krzyżacki był głównym zagadnieniem polityki władców Polski z dynastii Jagiellonów. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji panowanie trzech wybranych władców z tej dynastii.",
+   "expect_elementy": []
+  },
+  {
+   "id": "2022-probna-2",
+   "rok": 2022,
+   "rodzaj": "aspekty",
+   "tekst": "To polityka sąsiadów doprowadziła do upadku Rzeczypospolitej w XVIII wieku. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, uwzględniając w swojej argumentacji aspekt polityczny, społeczno-gospodarczy i kulturowy.",
+   "expect_elementy": [
+    "polityczny",
+    "społeczno-gospodarczy",
+    "kulturowy"
+   ]
+  },
+  {
+   "id": "2022-probna-3",
+   "rok": 2022,
+   "rodzaj": "trzy_wybrane",
+   "tekst": "Blok państw komunistycznych w Europie w latach 1945–1989 nie był monolitem. Zajmij stanowisko wobec powyższej tezy i je uzasadnij, przedstawiając losy trzech wybranych krajów bloku wschodniego.",
+   "expect_elementy": []
+  }
+ ]
 }

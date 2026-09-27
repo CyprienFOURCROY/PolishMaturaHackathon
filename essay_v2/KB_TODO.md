@@ -1,42 +1,44 @@
-# KB / kanon TODO (for Krzysztof, Bartek, or whoever owns the knowledge base)
+# Knowledge base TODO — for whoever owns `kanon.jsonl`
 
-Findings from building the essay pipeline on `maturaai-bartosz/knowledge_base/kanon.jsonl` (3,098 facts,
-Claude-written per curriculum section, unverified). Written 2026-09-27 ~01:00.
+State as of 2026-09-27 03:10. Source: `maturaai-bartosz/knowledge_base/kanon.jsonl` (3,098 facts, Claude-written per
+curriculum section, unverified). The essay module retrieves facts from it by (section, aspect). Everything below
+was found by generating and judging ~70 essays from it; nothing here is speculative.
 
-## Aspect vocabulary does not match CKE
-- `kanon.aspekt` values: polityczny, międzynarodowy, kulturowy, społeczny, ustrojowy, militarny, gospodarczy, religijny.
-- Real CKE topics (2023-2026) use: polityczny, **społeczno-gospodarczy** (5 of 12 topics), kulturowy, militarny,
-  ustrojowy, **dyplomatyczny**, **polityczno-ustrojowy**, społeczny, gospodarczy.
-- Workaround in the generator: merge `społeczny`+`gospodarczy` into `społeczno-gospodarczy` half the time.
-  Proper fix: tag facts with CKE's compound aspects too, or add a mapping table (międzynarodowy→dyplomatyczny etc.).
+## Scope decision (saves work)
+- **Only the `aspekty` topic formula matters.** Every formula-2023 sheet (pokazowy 2022, próbna 12/2022, May 2023–2026)
+  contains at least one topic of the form "...uwzględniając w swojej argumentacji aspekty: X, Y i Z". The harness always
+  picks that topic. No need to model rulers/events/states ("trzy wybrane") in the KB.
+- Aspect names that actually occur in real topics: **polityczny, społeczno-gospodarczy, kulturowy, militarny,
+  ustrojowy, ekonomiczny, społeczny, gospodarczy, dyplomatyczny, polityczno-ustrojowy.**
 
-## Coverage is thin in places
-- Sections with < 4 facts for an aspect produce 2-3-fact paragraphs (e.g. "Pradzieje i historia starożytnego
-  Wschodu", "Europa w XVI–XVII wieku" / barok). The judge marks these "powierzchowna".
-- Target: ≥ 6 facts per (section, aspect), each with a date where applicable, so a paragraph can pick 4.
+## 1. Aspect vocabulary (highest value, mechanical)
+- kanon uses: polityczny, międzynarodowy, kulturowy, społeczny, ustrojowy, militarny, gospodarczy, religijny.
+- Needed: a mapping or extra tags so retrieval can serve the CKE names above. Concretely:
+  `społeczno-gospodarczy` = społeczny ∪ gospodarczy; `ekonomiczny` = gospodarczy; `dyplomatyczny` ≈ międzynarodowy;
+  `polityczno-ustrojowy` = polityczny ∪ ustrojowy. `religijny` maps to `kulturowy` when a topic asks for it.
 
-## Aspect tagging is sometimes forced
-- "Kultura i nauka polska XIX w.": facts tagged `społeczny`/`gospodarczy` are Skłodowska at the Sorbonne and
-  Domeyko in Chile. Two independent judges (Opus, Fable) said the resulting "społeczno-gospodarczy" paragraph
-  "says nothing about Polish society or economy". Facts about emigrant scientists are `kulturowy`, not
-  `społeczno-gospodarczy`; the section needs real socio-economic facts (industrialisation, urbanisation, class).
-- Space race / Sputnik / Apollo tagged `międzynarodowy`; the judge noted it does not support a thesis about
-  international cooperation. Some facts need a second aspect tag or a better one.
+## 2. Aspect tagging errors (content)
+- "Kultura i nauka polska XIX w.": facts tagged społeczny/gospodarczy are Skłodowska at the Sorbonne and Domeyko in
+  Chile. Two judges independently said the resulting socio-economic paragraph "says nothing about Polish society or
+  economy". The section needs real socio-economic facts (industrialisation, urbanisation, peasantry, class).
+- "Przemiany cywilizacyjne": space race (Sputnik, Gagarin, Apollo) tagged `międzynarodowy`; judged as not supporting
+  an international-relations argument. Needs a second tag or a better one.
+- General check: for each (section, aspect) ask "could a paragraph about this aspect be written from these facts?"
 
-## Confirmed wrong rows (found by the essay judge, verified against kanon text)
+## 3. Coverage
+- Some (section, aspect) pairs have < 4 facts (e.g. starożytny Wschód, barok, wczesnopiastowska/ustrojowy: 2 facts).
+  A paragraph needs 4; target ≥ 6 per pair so sampling has slack.
+- Section names are inconsistent: 55 distinct `dzial` values for 50 sections (e.g. "...XX wieku" vs "...XX w").
+  Normalise before grouping.
+
+## 4. Confirmed wrong rows (already removed in our cleaned copy; fix at source)
 - "Maria Skłodowska-Curie została w 1906 roku pierwszą kobietą prowadzącą wykłady jako profesor paryskiej Sorbony" —
-  she began lecturing in 1906; the professorial chair came in 1908. Cost −1 in 4 of 5 essays that used it.
-- "Stanisław Kierbedź zaprojektował otwarty w 1864 roku stalowy most na Wiśle" — the bridge was iron, not steel.
-- Duplicates: the Skłodowska/polon/rad 1898 fact appears 3 times with slightly different wording; Nobel 1903 and
-  1911 appear twice each. Dedupe before retrieval, or a paragraph gets the same fact twice.
+  lectured from 1906, professorial chair 1908.
+- "Stanisław Kierbedź zaprojektował otwarty w 1864 roku stalowy most na Wiśle" — iron, not steel.
+- 4 exact-duplicate rows.
 
-## Nothing is verified
-- All 3,098 rows are unverified Claude output. 15 generated essays judged so far: 0 factual errors flagged by
-  the (Sol) judge, but that is the judge's knowledge checking Claude's knowledge, not a source check.
-- Exam-day risk: a wrong kanon fact becomes a confidently wrong essay (−1 to −3 pts). Highest-value rows to
-  verify first: dated facts about Polish history (most likely to appear in a real topic).
-
-## `trzy_wybrane` formula
-- 3 of 12 real topics ask for "trzech wybranych władców / wydarzeń / państw" instead of aspects. kanon has
-  `postac` and `tytul` fields; a `podmiot` (ruler/event/state) grouping would let the harness pick three
-  subjects with ≥ 4 facts each. Not yet handled by the generator.
+## 5. Verification (exam-day risk, not training risk)
+- Observed error rate ≈ 2 caught in ~600 fact uses (only the Sol judge caught them; Opus/Fable/the official mock grader
+  deducted nothing). Expected cost per essay ≈ 0 to −1 point. Not fatal, but the only fix is a source check.
+- Priority order: dated facts about Polish history (most likely in a real topic) → European early modern → the rest.
+- Training the small model on kanon is fine regardless: it learns to use supplied facts, not to know history.
