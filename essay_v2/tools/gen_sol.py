@@ -19,7 +19,7 @@ by_dz = collections.defaultdict(lambda: collections.defaultdict(list))
 for r in rows:
     by_dz[r["dzial"]][r["aspekt"]].append(r)
 
-PROMPT_VERSION = int(sys.argv[sys.argv.index("--variant") + 1][1:]) if "--variant" in sys.argv else 3
+PROMPT_VERSION = int(sys.argv[sys.argv.index("--variant") + 1][1:]) if "--variant" in sys.argv else 5  # house style
 
 VARIANT_ADDON = {
     3: "",
