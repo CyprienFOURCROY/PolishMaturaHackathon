@@ -42,12 +42,29 @@ uv run python scripts/egzamin_final.py --zip history-2023-mock-v1.zip
 ```
 It must end with `SUBMIT:` and two paths. On our machine (RTX 5090): 51 s our setup + 29 s bare base.
 
-**3. Final at 11:00:** download the final ZIP from https://warsawmodeltrainers.dev/submissions.html, then
+**3. Final (before coding stops at 11:00):** open https://warsawmodeltrainers.dev/submissions.html?exam=final.
+In "Get final exam questions" enter the team code and the repository link
+(`https://github.com/CyprienFOURCROY/PolishMaturaHackathon/tree/bartek/maturaai-bartosz`), tick the confirmation
+(from then on no work on any of the team's projects) and download the ZIP. The link is valid for 5 minutes (the button
+renews it); on a remote machine copy the link and run `curl -L -o final.zip '<link>'`. Then:
 ```bash
 uv run python scripts/egzamin_final.py --zip final.zip
 ```
-Submit `wyniki-final/zestaw/answers.json` as the exam answers and `wyniki-final/baza/answers.json` as
-**Base model answers JSON** (improvement is measured against it). Do not set `MATURA_TEMPERATURA`.
+It must end with `SUBMIT:` and two paths. Do not set `MATURA_TEMPERATURA`.
+
+**4. Submit** (same page, "Submit your run"): team code, project name, and in "Models used" one row per model:
+
+| model name or link | quantization |
+|---|---|
+| `unsloth/Qwen3.5-4B-GGUF` | `UD-IQ3_XXS` |
+| `unsloth/Qwen3.5-2B-GGUF` | `Q4_K_M + mmproj F16` |
+| `LiquidAI/LFM2-2.6B-GGUF` | `Q4_K_M` |
+| `Helsinki-NLP/opus-mt-en-zlw` | `None` |
+
+Category for this project: **Biggest improvement** (a category can be used by only one project of the team).
+Answers JSON: `wyniki-final/zestaw/answers.json`; Most capable base model: the Qwen3.5-4B row; Base model answers JSON:
+`wyniki-final/baza/answers.json` (improvement is measured against it). After "Upload answers" the page must show
+"Submission received ... Base model answers also received. Receipt: ..."; keep the receipt.
 
 **Tested** from a fresh clone with empty caches, the official llama.cpp release (b11205, CUDA 12.8), models
 downloaded by `przygotuj.py`, the mock ZIP from the organisers, and **no internet** during the exam (Linux, RTX 5090):
