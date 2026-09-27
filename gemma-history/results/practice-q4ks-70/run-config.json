@@ -1,0 +1,20 @@
+{
+  "exam_sha256": "0d4559be6ffae26304b102d8cec14814849caec879fd53d8be0196f24116354c",
+  "script_sha256": "28560b81dbd15ccb2869a109b72659605f2e06840d4b175727220a8b88f54e03",
+  "temperature": 0.0,
+  "max_tokens": 768,
+  "essay_tokens": 3072,
+  "base_url": "http://127.0.0.1:8080",
+  "model": "gemma-matura",
+  "seed": 42,
+  "essay_ids": [
+    "26"
+  ],
+  "essay_rules_version": "v1",
+  "essay_context_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "retrieval_version": "lexical-period-v1",
+  "timeline_sha256": "7aceee48058b87d4adf81c2c2a6136336ce1ec5cb894c0682b303d5ea9aa7a20",
+  "context_notes_sha256": "68d8377cc3880e28b39c457f8a798b996ad236bf39cfb4bab54b79c638059ad0",
+  "model-revision.txt": "29d097773436b69ff9feafd636ab4cf873786537",
+  "llama-commit.txt": null
+}
