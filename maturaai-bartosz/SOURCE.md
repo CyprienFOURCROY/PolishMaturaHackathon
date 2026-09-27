@@ -25,7 +25,7 @@ The weights are used as published (no fine-tuning in the final setup).
   `data/karty/kanon.jsonl` (3,098 fact cards), `data/karty/slownik_kanon.jsonl` (glossary),
   `data/wiedza/akapity_esej_claude.jsonl` (essay paragraph bank). A 15% sample of the entries was checked by an
   independent model (GPT-6 "Astra"): 91.2% of 3,227 claims correct, 1.8% wrong, 7.0% uncertain.
-- **CKE exam sheets and marking rules** (history, extended level, 2015-2026) were used for development and
-  measurement only (not in this folder): cke.gov.pl.
+- **CKE exam sheets** (history, extended level, 2015-2025) and the CKE marking rules were used for development and
+  measurement only (not in this folder): cke.gov.pl. The 2026 exam was never used.
 - **Organisers' mock exam** (CKE May 2023): https://warsawmodeltrainers.dev/exams/history-2023-mock-v1.zip.
 - Claude was used only while building (writing knowledge, judging our measurements), never during the exam.
