@@ -58,6 +58,28 @@ python3 essay_v2/tools/judge_sol.py out/sol/batch_41_v5.jsonl
 python3 essay_v2/tools/build_viewer.py && open out/viewer.html
 ```
 
+## Exam day: producing the essay answer
+
+```zsh
+# once: model + KB on the machine that runs the exam (offline afterwards)
+ollama create bielik-essay-sft -f out/models/Modelfile.bielik-essay     # Q8_0 GGUF, ChatML template
+git show origin/bartek:maturaai-bartosz/knowledge_base/kanon.jsonl > out/kanon.jsonl   # then dedupe -> out/kanon_clean.jsonl (see essay_v2/KB_TODO.md)
+
+# on the exam package
+python3 essay_v2/harness/answer_item26.py --exam exam.json --out answers.json --merge bartek_answers.json
+```
+
+`answer_item26.py` finds the essay item, picks the `aspekty` topic the KB covers best, retrieves 6 facts per aspect
+(IDF-weighted stem overlap, period window, section lock), writes the intro/conclusion from templates that quote the
+thesis verbatim, generates n candidate body paragraphs per aspect and keeps the best one that passes the hard gates
+(no year or name absent from the facts, thesis not negated, no markdown/echo, length band); if none passes it falls
+back to the KB's own sentences. It prints the essay for a human to read before upload. ~3–5 min on a Mac Air M1
+with n=6; use `--n 3` if time is short. Everything is local: Ollama + a JSONL file.
+
+Held-out evaluation: `python3 essay_v2/harness/essay.py --eval-all --model <ollama model> --n 6 --samples 3`
+then `python3 essay_v2/tools/judge_sol.py out/eval/harness_<model>.jsonl`. Topics in `essay_v2/topics_real.json`
+were never used to build data or prompts.
+
 ## Rules that shape the design
 
 - Bare model = benchmark; the essay's bare score is ~0, so every essay point is "progress".

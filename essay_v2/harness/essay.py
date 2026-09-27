@@ -73,7 +73,7 @@ def period_of(text):
         c = ROMAN.get(m.group(2)); 
         if c: a = (c - 1) * 100 + int(m.group(1)) * 10; lo, hi = (a if lo is None else min(lo, a)), (a + 9 if hi is None else max(hi, a + 9))
     if lo is not None and lo == hi and len(yrs) == 1:
-        lo, hi = lo - 12, hi + 1          # a single year in a thesis: causes lead up to it, aftermath is off-topic
+        lo, hi = lo - 12, hi              # a single year in a thesis: causes lead up to it, aftermath is off-topic
     return (lo, hi) if lo is not None else None
 
 def fact_year(r):
@@ -86,7 +86,7 @@ def period_score(r, win):
     y = fact_year(r)
     if y is None: return 0.0
     lo, hi = win
-    tol = 2 if (hi - lo) < 30 else 5
+    tol = 0 if (hi - lo) < 30 else 5
     if lo - tol <= y <= hi + tol: return 1.0
     d = min(abs(y - lo), abs(y - hi))
     return -1.5 if d <= 40 else (-3.0 if d <= 80 else -9.0)
@@ -289,6 +289,13 @@ def gate(par, facts, teza):
     sents = [s for s in re.split(r"(?<=[.!?])\s+", par) if s.strip()]
     unanchored = sum(1 for s in sents if not (stems(s) & fs))
     if sents and unanchored / len(sents) > 0.5: return f"unanchored {unanchored}/{len(sents)}"
+    # proper nouns from the facts must keep their capital letter ("grodna", "kozielsku" = degenerate output)
+    proper = {c for c in cap_tokens(allowed_text)} - {w.capitalize() for w in re.findall(r"\b\w+\b", allowed_text) if w[0].islower()}
+    low_hits = [w for w in re.findall(r"\b[a-ząęółśżźćń]{4,}\b", par) if w.capitalize() in proper and w not in LOWER_VOCAB]
+    if len(low_hits) >= 2: return f"lowercased names {low_hits[:3]}"
+    # repetition: distinct sentence-stem sets vs sentences; loops like "Pokazuje to... Potwierdza to..." collapse this
+    sig = [frozenset(stems(x)) for x in sents]
+    if len(sents) >= 4 and len(set(sig)) / len(sents) < 0.75: return "repetitive"
     # capitalised names not present anywhere in facts/thesis (allow sentence starts, also after .” ." .) )
     starts = set(re.findall(r"(?:^|[.!?…][”\"')]*\s+[„\"(]*)([A-ZŁŚŻŹĆŃÓ][a-ząęółśżźćń]{3,})", par))
     allowed_caps = cap_tokens(allowed_text) | {s.split()[0].strip(",.") for s in sents if s.split()} | starts
@@ -301,10 +308,14 @@ def score(par, facts):
     ps = stems(par)
     covered = sum(1 for f in fs_per_fact if len(f & ps) >= 2)
     sents = [s for s in re.split(r"(?<=[.!?])\s+", par) if s.strip()]
-    conn = sum(1 for c in CONNECT if c in par.lower())
+    low = par.lower()
+    conn = sum(1 for c in CONNECT if c in low)
+    conn_rep = sum(max(0, low.count(c) - 1) for c in CONNECT)          # the same connective again and again
     rep = len(sents) - len({s[:40] for s in sents})
+    sig = [frozenset(stems(x)) for x in sents]
+    distinct = len(set(sig)) / max(1, len(sents))
     words = len(par.split())
-    s = 3 * covered + min(conn, 4) - 3 * rep - (2 if HEDGE.search(par) else 0) - abs(words - 110) / 20
+    s = 3 * covered + min(conn, 3) - 2 * conn_rep - 3 * rep - 6 * (1 - distinct) - (2 if HEDGE.search(par) else 0) - abs(words - 110) / 20
     return s
 
 def fallback_paragraph(aspekt, facts, teza):
