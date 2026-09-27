@@ -17,6 +17,14 @@ downloaded by a script (exact files and commits in `SOURCE.md`).
   `export LLAMA_SERVER=/path/to/llama-server` (PowerShell: `$env:LLAMA_SERVER="C:\path\llama-server.exe"`).
   If `llama-server` is on your PATH, nothing to set.
 
+**Linux x64 (laptop or a cloud GPU machine, e.g. Forgehand): one command.** After cloning (the repository is private,
+so log in to GitHub on that machine first: `gh auth login`, an SSH key, or HTTPS with a personal access token):
+```bash
+cd PolishMaturaHackathon/maturaai-bartosz
+bash scripts/przygotuj_linux.sh --proba   # uv, official llama.cpp in data/bin (GPU variant picked by what it sees), models, mock exam
+```
+It must end with `SUBMIT:` (mock) and `READY.`; then go to step 3. On macOS or Windows follow steps 1-2 below.
+
 **1. Setup** (once):
 ```bash
 git clone -b bartek git@github.com:CyprienFOURCROY/PolishMaturaHackathon.git
