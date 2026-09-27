@@ -1,0 +1,52 @@
+[
+  {
+    "file": "comparison-55-60.tar.gz",
+    "bytes": 32539,
+    "sha256": "6480a217ba44be01eb73dea3941c2cab14397e9610966b6a84a6a68b3bc0c94b"
+  },
+  {
+    "file": "comparison-60-58.tar.gz",
+    "bytes": 70625,
+    "sha256": "29aa5871dc4935606f648f2da37f95ee396698abd8d643131e25afd8b8564675"
+  },
+  {
+    "file": "full-q4ks-fast-v1.tar.gz",
+    "bytes": 50582,
+    "sha256": "f7f358be921f05b0ca0395dbf28d67610613a9594e0f91ee31576866c37c35be"
+  },
+  {
+    "file": "gemma3-12b-full-run.tar.gz",
+    "bytes": 12437,
+    "sha256": "66d7628c312f36e857c822b97ba11a16b011021558a487f16e844864484ef39e"
+  },
+  {
+    "file": "gemma3-12b-iq3-full-run.tar.gz",
+    "bytes": 11366,
+    "sha256": "2160291449c70343f7b8e7fb11458cb4fbaa10830fec56cbd9b6c27cb8a39e1c"
+  },
+  {
+    "file": "gemma3-12b-iq3-rules-v1-full-run.tar.gz",
+    "bytes": 11960,
+    "sha256": "6eb45b59dc40967db55f2839e22e13c0d70661823e2e56ee29d5509fcc25eead"
+  },
+  {
+    "file": "q4ks-70-results.tar.gz",
+    "bytes": 26607,
+    "sha256": "48ccc100f4c605892b36a13003fa9431f29390fd4b41160cafb83577b42cd803"
+  },
+  {
+    "file": "q4ks-observe-v1-smoke.tar.gz",
+    "bytes": 4610,
+    "sha256": "0f51e3eb96820f00b9d7cead32c5d8faf55918750e25eb1113cb0de078b940aa"
+  },
+  {
+    "file": "q4ks-source-rules-v2-short.tar.gz",
+    "bytes": 8706,
+    "sha256": "6809928864609be71cd9a29ede16a873973e074eecb45cb18085d923f840f136"
+  },
+  {
+    "file": "answers-4.json",
+    "bytes": 4157,
+    "sha256": "911626d1b1de38fedc845aaed507a6e66594bcba5a4bbbf27d6e0a159c5ac874"
+  }
+]

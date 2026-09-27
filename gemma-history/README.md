@@ -1,27 +1,55 @@
-# Gemma history pipeline
+# Gemma history exam pipeline
 
-Practice platform result: 42/60 (70%), 27 September 2026. This is calibration on the supplied history-2023-mock-v1 exam, not an unseen-test result
+Olga Ivanova · Warsaw Model Trainers · September 2026
 
-Model: bartowski/google_gemma-3-12b-it-GGUF, google_gemma-3-12b-it-Q4_K_S.gguf plus mmproj-google_gemma-3-12b-it-f16.gguf, approximately 7.8 GB combined. No fine-tuning. Images are passed directly to Gemma. Local lexical/period retrieval is used only for essay IDs (default 26). Short questions receive no retrieved context
+**Selected configuration: Gemma 3 12B IT Q4_K_S, direct image input, Polish answers, local essay retrieval. Practice platform score: 42/60 (70%).** No fine-tuning. Only one supplied calibration exam was used; this is not an unseen-test result
 
-## Data
+## Start here
 
-`timeline/events.jsonl`: 1,244 entries from https://pl.wikipedia.org/wiki/Kalendarium_historii_Polski, revision 80582058. Fields include id, date_text, event_text, section_path, source_text, source_url, revision_id, citation_refs. One malformed empty-date entry is retained for provenance and excluded by the loader. Parsing was validated; historical claims were not independently verified. Wikipedia text remains subject to its applicable attribution/share-alike terms; retain source URLs and revision attribution when redistributing
+- FINAL_RUN.md: existing GPU session, final command, resume and output validation
+- SETUP.md: model files, runtime prerequisites and installation commands
+- EXPERIMENTS.md: scores, rejected variants, evidence and remaining uncertainties
+- experiments/evidence/MANIFEST.json: hashes of preserved experimental result files
 
-`historical_context.jsonl`: seven source-based summaries with source URLs. This is a small supplement, not comprehensive world-history coverage
+## Selected inference path
 
-## Run
+Short tasks receive their original text and images directly. Essays receive locally retrieved timeline entries and seven supplementary context notes. The model chooses its own essay topic. No short-task RAG, separate image describer, translation model, voting or selection of answers from multiple runs is used
 
-Use the existing CUDA llama.cpp server with alias gemma-matura on port 8080, Q4_K_S weights, F16 vision projector, context 16384, one slot and --jinja. Model files and compiled runtime are not included
+The original scored client is run_exam_gemma_auto.py. The final client run_exam_gemma_final.py preserves its practice-exam message content while adding automatic essay detection and adaptation to explicitly different word limits. final_run.py adds preflight checks, logging, validation and packaging. The final wrapper itself has not received a separate GPU score
 
-```bash
-python3 run_exam_gemma_auto.py --exam /workspace/matura-qwen/exam/exam.json --out runs/q4ks-auto --timeline timeline/events.jsonl --context-notes historical_context.jsonl --temperature 0 --max-tokens 768 --essay-tokens 3072
-```
+Generation: temperature 0, seed 42, top_p 0.95, top_k 64, min_p 0, repeat penalty 1, 768 output tokens for short questions and 3072 for essays. llama.cpp context 16384, one slot, Jinja template, local endpoint on port 8080
 
-Python 3.10+ standard library client. The exam JSON and images must keep their relative layout. Change --essay-ids if essay IDs differ. Use a new output directory for changed configurations
+## Run from this directory
 
-## Evidence and limitations
+    python3 final_run.py --exam /absolute/path/to/exam.json --out runs/final-exam --check-only
+    python3 -u final_run.py --exam /absolute/path/to/exam.json --out runs/final-exam
 
-Saved practice outputs are in results/practice-q4ks-70. Score 42/60 was observed in the platform UI; no per-item scores were available. The historical run config uses the server alias and contains inherited metadata: it is not an authoritative model-weight hash manifest. Exact weight hashes were not recorded in these supplied artifacts
+Requires Python 3.10+ and the already running local server. Preserve the exam's relative image layout. Repeat the exact command to resume. Use a new output directory for different inputs or configuration. Ambiguous essay detection requires explicit --essay-ids ID or --no-essays
 
-Retrieval uses truncated lexical terms and date ranges and can return irrelevant facts. Added retrieval for short questions reduced an earlier IQ3 run from 36/60 to 35/60 and is excluded here. Two-stage essay planning and image-crop experiments are also excluded. No automatic answer selection from multiple runs
+After PASS upload runs/final-exam/submission.json. The audit archive is runs/final-exam.tar.gz. PASS checks completeness, IDs, response termination and parsed word bounds, not historical accuracy. No automatic submission occurs
+
+## Weights and hardware
+
+HF repository: https://huggingface.co/bartowski/google_gemma-3-12b-it-GGUF
+
+| Component | File | Bytes |
+|---|---|---:|
+| Language model | google_gemma-3-12b-it-Q4_K_S.gguf | 6,935,130,144 |
+| Vision projector | mmproj-google_gemma-3-12b-it-f16.gguf | 854,200,224 |
+| Total | | 7,789,330,368 |
+
+The server stores the projector under mmproj-gemma-3-12b-it-f16.gguf. Runtime: locally compiled llama.cpp reporting commit 81bc6b8, NVIDIA L40S, Ubuntu 22.04. Exact full runtime commit and weight SHA-256 values were not captured in the original scored artifacts. Inherited run-config metadata is not an authoritative weight manifest. Disk size is distinct from GPU memory consumption
+
+## Data provenance
+
+The 1,244 timeline records originate from https://pl.wikipedia.org/wiki/Kalendarium_historii_Polski, revision 80582058. Fields include id, date_text, event_text, section_path, source_text, source_url, revision_id and citation_refs. One malformed empty-date record is preserved and excluded by the loader. Extraction fidelity was checked; historical truth was not independently verified. The source itself carries a quality warning. Retain source/revision attribution and applicable Wikipedia attribution/share-alike terms when redistributing
+
+historical_context.jsonl contains seven source-based notes with source URLs, not comprehensive world-history coverage. timeline/manifest.json also records hashes of original acquisition files not bundled in this repository. Synthetic hasla_claude.jsonl was tested separately and is not used in the selected pipeline
+
+## Results and limitations
+
+results/practice-q4ks-70 contains the scored run's answers, records, config and retrieval audit. The 42/60 score was observed in the organisers' UI; no per-question breakdown was available. Sum of recorded answer times: about 105 seconds. These per-answer timings are not a complete deployment benchmark
+
+Retrieval uses five-character lexical prefixes and date ranges. It can omit relevant events, confuse related words and introduce irrelevant context. Generated answers can hallucinate dates, people, visual details and causal links. Word counts are whitespace-based approximations. Model/runtime identity is not attested by the health endpoint. Resume assumes the operator retains the same loaded model
+
+This branch includes experimental evidence for transparency, but the runner does not read it or past answers. Repeated tuning on one calibration exam creates overfitting risk. No historical answer corrections have been manually inserted into submission files
